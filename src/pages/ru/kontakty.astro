@@ -1,0 +1,41 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import DirectContact from '../../components/DirectContact.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Контакты — Анастасия Никольская"
+  description="Свяжитесь с Анастасией Никольской для записи на тренировки во время беременности и после родов в Самаре."
+  canonicalPath="/ru/kontakty/"
+  alternatePath="/en/contact/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Контакты' }]} />
+
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-20 items-start">
+        <div>
+          <p class="label-uppercase mb-6">Контакты</p>
+          <h1 class="mb-6">Свяжитесь со мной</h1>
+          <p class="text-lg leading-relaxed max-w-md mb-10">
+            Запишитесь на стартовую встречу или свяжитесь напрямую, если у вас есть вопросы.
+          </p>
+          <BookingCta lang={lang} label="Записаться на встречу" />
+        </div>
+        <div>
+          <p class="label-uppercase !text-[12px] mb-6">Связаться напрямую</p>
+          <DirectContact lang={lang} />
+          <div class="mt-10 pt-8 border-t border-[var(--color-border)]">
+            <p class="label-uppercase !text-[12px] mb-2">Расположение</p>
+            <p class="text-lg font-semibold text-[var(--color-dark)]">Самара + онлайн</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

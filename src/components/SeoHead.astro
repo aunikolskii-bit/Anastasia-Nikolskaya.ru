@@ -1,0 +1,54 @@
+---
+import type { Lang } from '../i18n/utils';
+import { SITE_URL } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  alternatePath: string;
+  ogImage?: string;
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath,
+  alternatePath,
+  ogImage = '/images/og/og-default.jpg',
+  structuredData,
+} = Astro.props;
+
+const alternateLang = lang === 'ru' ? 'en' : 'ru';
+const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+const alternateUrl = `${SITE_URL}${alternatePath}`;
+const ogImageUrl = `${SITE_URL}${ogImage}`;
+const locale = lang === 'ru' ? 'ru_RU' : 'en_US';
+---
+
+<!-- SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- hreflang -->
+<link rel="alternate" hreflang={lang} href={canonicalUrl} />
+<link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
+<link rel="alternate" hreflang="x-default" href={SITE_URL + '/'} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={locale} />
+<meta property="og:site_name" content="Anastasia Nikolskaya" />
+
+<!-- Structured data -->
+{structuredData && (
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+)}

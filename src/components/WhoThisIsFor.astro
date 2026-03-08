@@ -1,0 +1,56 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  ru: {
+    label: 'Для кого',
+    title: 'Для вас, если',
+    items: [
+      'Вы беременны и хотите двигаться безопасно на любом сроке',
+      'Вы недавно родили и хотите мягко вернуться к активности',
+      'Вы после кесарева и ищете аккуратный подход',
+      'Вам важен не темп, а понимание: что можно, что нет, и почему',
+      'Вы хотите спокойную поддержку, а не давление и мотивационные лозунги',
+    ],
+  },
+  en: {
+    label: 'Who this is for',
+    title: 'This is for you if',
+    items: [
+      'You are pregnant and want to move safely at any stage',
+      'You recently gave birth and want a gentle return to activity',
+      'You had a C-section and need a careful, step-by-step approach',
+      'You value understanding over pace: what is safe, what is not, and why',
+      'You want calm support, not pressure or motivational slogans',
+    ],
+  },
+};
+
+const c = content[lang];
+---
+
+<section class="bg-[var(--color-bg-cream)]">
+  <div class="container section">
+    <p class="label-uppercase mb-4 text-center">{c.label}</p>
+    <h2 class="text-center mb-12">{c.title}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[940px] mx-auto">
+      {c.items.map(item => (
+        <div class="flex items-start gap-4 bg-[var(--color-card-fill)] rounded-2xl px-6 py-5">
+          <span class="shrink-0 mt-0.5" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="11" fill="var(--color-primary)" opacity="0.12" />
+              <path d="M7 11.5L9.5 14L15 8.5" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="text-[16px] leading-relaxed">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

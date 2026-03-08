@@ -1,0 +1,83 @@
+---
+/**
+ * HowIWork — merged "How I work / Safe approach" block.
+ * Replaces WhyChoose + SafetyProcess on homepage.
+ * 4 compact text-first cards, no image.
+ */
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  ru: {
+    label: 'Как я работаю',
+    title: 'Спокойный и безопасный подход',
+    cards: [
+      {
+        title: 'С учётом вашего этапа',
+        text: 'Программа строится под срок беременности или послеродовый период, ваше самочувствие и задачу.',
+      },
+      {
+        title: 'Безопасный вход в нагрузку',
+        text: 'Без гонки, без давления и без лишнего риска. Важен не темп, а правильный путь.',
+      },
+      {
+        title: 'Персональный маршрут, а не шаблон',
+        text: 'Каждая работа строится под вас, а не по общей схеме.',
+      },
+      {
+        title: 'В рамках компетенции тренера',
+        text: 'При медицинских вопросах рекомендую консультацию врача.',
+      },
+    ],
+  },
+  en: {
+    label: 'How I work',
+    title: 'A calm and safe approach',
+    cards: [
+      {
+        title: 'Tailored to your stage',
+        text: 'Each plan is built around your pregnancy stage or postpartum period, how you feel, and what you need.',
+      },
+      {
+        title: 'A safe return to movement',
+        text: 'No rush, no pressure, and no unnecessary risk. What matters is not speed, but the right path.',
+      },
+      {
+        title: 'A personal plan, not a template',
+        text: 'Every program is shaped around you, not a generic formula.',
+      },
+      {
+        title: 'Within the trainer\'s scope',
+        text: 'If there are medical concerns, I recommend consulting a doctor.',
+      },
+    ],
+  },
+};
+
+const c = content[lang];
+---
+
+<section id="how-it-works" class="bg-[var(--color-bg-cream)]">
+  <div class="container section">
+    <p class="label-uppercase mb-6">{c.label}</p>
+    <h2 class="mb-12 max-w-[560px]">{c.title}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {c.cards.map(card => (
+        <div class="card">
+          <div class="flex gap-4 items-start">
+            <span class="mt-2 w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-xl mb-2">{card.title}</h3>
+              <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{card.text}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

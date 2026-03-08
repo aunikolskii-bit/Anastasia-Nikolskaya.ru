@@ -1,0 +1,78 @@
+---
+/**
+ * AboutTrainer — personal credibility block for homepage.
+ * Two-column: text + trust points left, trainer image right.
+ * Calm, trust-focused — not promotional.
+ */
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  ru: {
+    label: 'О специалисте',
+    title: 'Специалист, которому можно доверять',
+    paragraph: 'Меня зовут Анастасия Никольская. Я\u00A0дипломированный тренер и\u00A0работаю с\u00A0женщинами во\u00A0время беременности и\u00A0после родов. Моя задача\u00A0— помочь вам двигаться спокойно, безопасно и\u00A0с\u00A0пониманием того, что подходит именно вашему этапу.',
+    trust: [
+      'Дипломированный тренер',
+      'До и после родов',
+      'Индивидуальная адаптация',
+      'Самара и онлайн',
+    ],
+    imgAlt: 'Персональная работа тренера с беременной клиенткой',
+  },
+  en: {
+    label: 'About',
+    title: 'A specialist you can trust',
+    paragraph: 'My name is Anastasia Nikolskaya. I am a certified trainer working with women during pregnancy and after childbirth. My goal is to help you move calmly, safely, and with a clear understanding of what is right for your stage.',
+    trust: [
+      'Certified trainer',
+      'Prenatal & postpartum',
+      'Individual adaptation',
+      'Samara & online',
+    ],
+    imgAlt: 'A trainer working one-on-one with a pregnant client',
+  },
+};
+
+const c = content[lang];
+---
+
+<section class="bg-[var(--color-bg-light)]">
+  <div class="container section">
+    <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
+      <!-- Text column -->
+      <div class="flex-1 lg:max-w-[55%] lg:py-8">
+        <p class="label-uppercase mb-4">{c.label}</p>
+        <h2 class="mb-8">{c.title}</h2>
+        <p class="text-lg leading-relaxed text-[var(--color-text-body)] mb-8">
+          {c.paragraph}
+        </p>
+        <!-- Trust points — quiet 2×2 grid -->
+        <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+          {c.trust.map(item => (
+            <div class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <!-- Image column -->
+      <div class="flex-1 lg:max-w-[45%] w-full">
+        <img
+          src="/images/about-trainer.jpg"
+          alt={c.imgAlt}
+          class="w-full h-auto aspect-[3/4] object-cover object-top rounded-2xl"
+          loading="lazy"
+          width="1024"
+          height="1536"
+        />
+      </div>
+    </div>
+  </div>
+</section>

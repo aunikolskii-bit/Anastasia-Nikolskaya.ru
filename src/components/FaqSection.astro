@@ -1,0 +1,98 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  limit?: number;
+  asPage?: boolean;
+}
+
+const { lang, limit, asPage } = Astro.props;
+const Heading = asPage ? 'h1' : 'h2';
+
+const content = {
+  ru: {
+    label: 'Частые вопросы',
+    title: 'Вопросы и ответы',
+    items: [
+      {
+        q: 'Можно ли начать, если я никогда раньше не тренировалась?',
+        a: 'Да. Программа адаптируется под ваш текущий уровень и самочувствие.',
+      },
+      {
+        q: 'Можно ли начать после кесарева сечения?',
+        a: 'Это зависит от срока восстановления, самочувствия и рекомендаций врача. Нагрузка всегда подбирается аккуратно и поэтапно.',
+      },
+      {
+        q: 'Можно ли заниматься онлайн?',
+        a: 'Да. Онлайн подходит как самостоятельный формат или как поддержка между встречами.',
+      },
+      {
+        q: 'Сколько раз в неделю лучше заниматься?',
+        a: 'Это зависит от вашего этапа, целей и общей нагрузки. На стартовой встрече подбирается реалистичный ритм.',
+      },
+      {
+        q: 'Что делать, если я тревожусь и не уверена, можно ли мне начинать?',
+        a: 'Именно для этого и нужна спокойная стартовая встреча: чтобы понять, какой формат будет безопасным и комфортным для вас сейчас.',
+      },
+    ],
+  },
+  en: {
+    label: 'FAQ',
+    title: 'Questions and answers',
+    items: [
+      {
+        q: 'Can I start if I have never trained before?',
+        a: 'Yes. The plan is adapted to your current level and how you feel now.',
+      },
+      {
+        q: 'Can I start after a C-section?',
+        a: 'That depends on timing, how you feel, and medical guidance. Load is always progressed carefully and step by step.',
+      },
+      {
+        q: 'Can I train online?',
+        a: 'Yes. Online work can be a standalone format or a support layer between sessions.',
+      },
+      {
+        q: 'How often should I train?',
+        a: 'It depends on your stage, goals, and current load. A realistic rhythm is chosen during the starter assessment.',
+      },
+      {
+        q: 'What if I feel anxious or unsure whether I should start?',
+        a: 'That is exactly what the starter assessment is for: to calmly understand what is safe and appropriate for you now.',
+      },
+    ],
+  },
+};
+
+const c = content[lang];
+const items = limit ? c.items.slice(0, limit) : c.items;
+---
+
+<!-- Reference: asymmetric layout with bordered accordion container -->
+<section class="bg-white">
+  <div class="container section">
+    <div class="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start">
+      <div>
+        <p class="label-uppercase mb-4">{c.label}</p>
+        <Heading>{c.title}</Heading>
+      </div>
+      <div class="border-2 border-[var(--color-border-strong)]">
+        {items.map((item, i) => (
+          <details class="group">
+            <summary class:list={[
+              'cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none [&::-webkit-details-marker]:hidden',
+              i > 0 && 'border-t border-[var(--color-border)]'
+            ]}>
+              <span class="font-semibold text-[var(--color-dark)] text-[15px] leading-snug">{item.q}</span>
+              <span class="shrink-0 text-[var(--color-primary-dark)] transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+            </summary>
+            <div class="px-6 pb-5">
+              <p class="text-[15px] leading-relaxed">{item.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

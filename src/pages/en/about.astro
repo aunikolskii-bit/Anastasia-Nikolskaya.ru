@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="About the Trainer — Anastasia Nikolskaya"
+  description="Anastasia Nikolskaya — personal trainer for women during pregnancy and after childbirth in Samara. Narrow specialization, safe approach."
+  canonicalPath="/en/about/"
+  alternatePath="/ru/o-trenere/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'About' }]} />
+
+  <section class="bg-white">
+    <div class="container section">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="label-uppercase mb-4">About the Trainer</p>
+          <h1>Anastasia Nikolskaya</h1>
+          <p class="text-lg leading-relaxed mt-6 mb-8">
+            A personal trainer with a narrow specialization in working with women during pregnancy and after childbirth. Based in Samara, available online.
+          </p>
+          <div class="space-y-6 text-[15px] leading-relaxed">
+            <p>
+              My approach is not "fitness at any cost" but gentle support adapted to your current stage. Every plan is built individually: around your term, condition, restrictions, and goals.
+            </p>
+            <p>
+              I work within the scope of a trainer — movement, fitness preparation, load adaptation. For medical questions, I always recommend consulting a physician.
+            </p>
+            <p>
+              What I want most for every client: for you to feel calm, safe, and clear about what comes next.
+            </p>
+          </div>
+
+          <div class="mt-10">
+            <BookingCta lang={lang} label="Book a starter assessment" />
+            <div class="mt-4">
+              <FallbackContact lang={lang} />
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="/images/about-method.jpg"
+            alt="Anastasia Nikolskaya correcting technique — individual approach to each client"
+            class="rounded-sm w-full h-auto mt-4"
+            loading="lazy"
+            width="1200"
+            height="900"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

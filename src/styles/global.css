@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+/* ===== Self-hosted fonts ===== */
+
+/* Lora 700 — Heading serif (Cyrillic) */
+/* Substitutes Libre Baskerville which lacks Cyrillic support */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/lora-700-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* Lora 700 — Heading serif (Latin) */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/lora-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Inter 400/600 — Body sans-serif (Cyrillic) */
+/* Substitutes Plus Jakarta Sans which lacks basic Cyrillic support */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/inter-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* Inter 400/600 — Body sans-serif (Latin) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Gentium Plus 400 — Brand wordmark (Cyrillic) */
+@font-face {
+  font-family: 'Gentium Plus';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gentium-plus-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* Gentium Plus 400 — Brand wordmark (Latin) */
+@font-face {
+  font-family: 'Gentium Plus';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gentium-plus-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ===== Design tokens (Tailwind 4 @theme) ===== */
+/* Muted plum / dusty mauve palette, warm ivory backgrounds */
+
+@theme {
+  --color-primary: #694671;
+  --color-primary-dark: #553A5C;
+  --color-dark: #281F1D;
+  --color-text-body: #60514F;
+  --color-bg-light: #FBF8F2;
+  --color-bg-cream: #EEEBE4;
+  --color-border: #E7DBD5;
+  --color-border-strong: #E8E4DD;
+  --color-card-fill: #FFFDFA;
+  --color-secondary: #E4D1DD;
+  --color-secondary-fg: #423644;
+  --color-accent: #DBA8AF;
+  --color-ring: #86628F;
+
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-brand: 'Gentium Plus', 'Lora', Georgia, serif;
+}
+
+/* ===== Base styles ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  font-size: 17px;
+  background-color: var(--color-bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 52px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 30px;
+    letter-spacing: -0.015em;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+}
+
+/* ===== Reusable patterns ===== */
+
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+.label-uppercase {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+  .label-uppercase {
+    font-size: 11px;
+  }
+}
+
+/* ===== Buttons ===== */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  padding: 14px 24px;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FAF8F5;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 2px 12px rgba(105, 70, 113, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-dark);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-cream);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ===== Cards ===== */
+
+.card {
+  background: var(--color-card-fill);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Focus / accessibility ===== */
+
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* ===== Skip-to-content ===== */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 8px 16px;
+  background: #fff;
+  color: var(--color-dark);
+  z-index: 100;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.skip-link:focus {
+  top: 16px;
+  left: 16px;
+}
+
+/* ===== Animations ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ===== Active nav accent ===== */
+
+.nav-item-active::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background-color: var(--color-primary);
+}

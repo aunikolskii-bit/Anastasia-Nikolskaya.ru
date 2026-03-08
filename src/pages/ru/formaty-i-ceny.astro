@@ -1,0 +1,157 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Форматы и стоимость — Анастасия Никольская"
+  description="Персональные тренировки, послеродовое восстановление, мини-группы и онлайн-поддержка. Стоимость от 3 500 ₽ за стартовую встречу."
+  canonicalPath="/ru/formaty-i-ceny/"
+  alternatePath="/en/formats-pricing/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Форматы и цены' }]} />
+
+  <!-- Section 1: Intro -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h1>Форматы работы и&nbsp;цены</h1>
+        <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
+          Я&nbsp;работаю индивидуально и&nbsp;в&nbsp;мини-группах, в&nbsp;Самаре и&nbsp;онлайн.
+          Формат подбирается под&nbsp;ваш этап, самочувствие и&nbsp;задачу.
+          Начать можно со&nbsp;стартовой встречи.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Featured entry — Starter -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="card border-l-4 border-l-[var(--color-primary)] p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-start">
+          <div>
+            <h2 class="text-2xl mb-3">Стартовая встреча</h2>
+            <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-6">
+              Спокойный первый шаг: знакомство, разбор вашей ситуации, целей и&nbsp;ограничений, базовая оценка и&nbsp;понимание, как двигаться дальше.
+            </p>
+            <ul class="space-y-2">
+              {[
+                'Знакомство и разбор вашей ситуации',
+                'Оценка текущего состояния',
+                'Обсуждение целей и ограничений',
+                'Рекомендации по формату работы',
+                'Понимание, как двигаться дальше',
+              ].map(item => (
+                <li class="flex items-start gap-2.5">
+                  <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+                  <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="md:text-right">
+            <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-3xl md:text-4xl mb-4">от&nbsp;3&nbsp;500&nbsp;₽</p>
+            <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Core — Personal guidance 1:1 -->
+  <section class="bg-white">
+    <div class="container section">
+      <h2 class="mb-3">Персональное сопровождение 1:1</h2>
+      <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-10 max-w-2xl">
+        Индивидуальная работа под&nbsp;ваш этап, самочувствие и&nbsp;задачу&nbsp;— во&nbsp;время беременности, после&nbsp;родов или после кесарева сечения.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { sessions: '4 занятия', price: 'от 16 000 ₽', note: 'Для начала работы' },
+          { sessions: '8 занятий', price: 'от 30 000 ₽', note: 'Основной курс' },
+          { sessions: '12 занятий', price: 'от 44 000 ₽', note: 'Углублённая программа' },
+        ].map(tier => (
+          <div class="card p-6 text-center">
+            <p class="text-[14px] text-[var(--color-text-body)]/60 mb-2">{tier.note}</p>
+            <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-2xl mb-1">{tier.price}</p>
+            <p class="text-[15px] text-[var(--color-text-body)]">{tier.sessions}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Secondary — Mini-group -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="card p-8">
+        <h2 class="text-xl mb-3">Мини-группы</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-3">
+          Занятия в&nbsp;небольшой группе до&nbsp;4&nbsp;человек. Подходит тем, кому комфортнее заниматься в&nbsp;компании, но&nbsp;с&nbsp;вниманием к&nbsp;каждому.
+        </p>
+        <p class="text-[14px] text-[var(--color-text-body)]/60">
+          Стоимость и&nbsp;набор уточняются отдельно.
+          <a href="https://wa.me/79270101378" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline no-underline">Напишите</a>, чтобы узнать актуальное расписание.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Online / Offline -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="mb-6">Онлайн и&nbsp;офлайн</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          Все форматы доступны очно в&nbsp;Самаре и&nbsp;онлайн. Формат подбирается под&nbsp;ваше удобство. Онлайн-формат подходит, если вам удобнее заниматься из&nbsp;дома, — качество работы не&nbsp;теряется.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Mini FAQ -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="text-center mb-10">Частые вопросы</h2>
+      <div class="max-w-2xl mx-auto space-y-6">
+        {[
+          { q: 'С чего лучше начать?', a: 'Со стартовой встречи. Это спокойный первый шаг, на котором мы разберём вашу ситуацию и подберём формат.' },
+          { q: 'Нужна ли стартовая встреча перед курсом?', a: 'Рекомендую — она помогает мне понять ваш этап и задачу, а вам — почувствовать формат работы.' },
+          { q: 'Можно ли заниматься онлайн?', a: 'Да. Все форматы доступны онлайн без потери в качестве работы.' },
+          { q: 'Подходит ли формат после кесарева?', a: 'Да, программа адаптируется под ваш этап восстановления и самочувствие.' },
+          { q: 'Как понять, какой формат мне нужен?', a: 'Именно для этого есть стартовая встреча — она поможет определиться.' },
+        ].map(item => (
+          <details class="group">
+            <summary class="flex items-center justify-between cursor-pointer py-3 text-[16px] font-medium text-[var(--color-dark)] hover:text-[var(--color-primary-dark)] transition-colors">
+              {item.q}
+              <span class="ml-4 shrink-0 text-[var(--color-text-body)]/40 group-open:rotate-45 transition-transform text-xl leading-none" aria-hidden="true">+</span>
+            </summary>
+            <p class="pb-3 text-[15px] leading-relaxed text-[var(--color-text-body)]">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Final CTA -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Начните со&nbsp;стартовой встречи</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          Это спокойный первый шаг: мы познакомимся, разберём вашу ситуацию и&nbsp;решим, как двигаться дальше.
+        </p>
+        <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

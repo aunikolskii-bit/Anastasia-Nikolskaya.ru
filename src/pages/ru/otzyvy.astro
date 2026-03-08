@@ -1,0 +1,24 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Reviews from '../../components/Reviews.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Отзывы — Анастасия Никольская"
+  description="Отзывы клиенток о персональных тренировках во время беременности и после родов с Анастасией Никольской в Самаре."
+  canonicalPath="/ru/otzyvy/"
+  alternatePath="/en/reviews/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Отзывы' }]} />
+  <Reviews lang={lang} asPage />
+  <section class="bg-white">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+    </div>
+  </section>
+</PageLayout>

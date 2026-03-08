@@ -1,0 +1,65 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Восстановление после родов в Самаре — Анастасия Никольская"
+  description="Мягкое послеродовое восстановление в Самаре и онлайн. Безопасный возврат к нагрузке после родов и кесарева сечения."
+  canonicalPath="/ru/posle-rodov/"
+  alternatePath="/en/after-childbirth/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'После родов' }]} />
+
+  <!-- Photo-light page: all available photos show pregnant clients.
+       Using minimal or no imagery to avoid perception mismatch. -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">После родов</p>
+        <h1>Мягкое возвращение к активности и уверенности в теле</h1>
+        <p class="text-lg leading-relaxed mt-6 mb-10">
+          После родов тело нуждается в бережном подходе: не в «быстром восстановлении», а в постепенном, безопасном и понятном маршруте. Работа строится с учётом типа родов, срока, самочувствия и ваших целей.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="card">
+          <h3 class="text-xl mb-3">Направления работы</h3>
+          <ul class="space-y-3 text-[15px] leading-relaxed">
+            <li>Корпус, тазовое дно и осанка</li>
+            <li>Дыхание и контроль нагрузки</li>
+            <li>Постепенный возврат к активности</li>
+            <li>Работа после кесарева сечения</li>
+            <li>Возвращение уверенности в теле</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl mb-3">Как начать</h3>
+          <ul class="space-y-3 text-[15px] leading-relaxed">
+            <li>Стартовая встреча: понимание вашей ситуации</li>
+            <li>Индивидуальный план под ваш этап</li>
+            <li>Мягкая прогрессия без давления</li>
+            <li>Формат: в Самаре или онлайн</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-[13px] text-[#707070] italic mb-8 max-w-2xl mx-auto text-center">
+        При наличии медицинских противопоказаний рекомендуется консультация врача.
+      </p>
+
+      <div class="text-center">
+        <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

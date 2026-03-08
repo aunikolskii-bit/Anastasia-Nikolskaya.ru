@@ -1,0 +1,24 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import SafetyProcess from '../../components/SafetyProcess.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Безопасность и подход — Анастасия Никольская"
+  description="Безопасный подход к тренировкам во время беременности и после родов. Мягкая прогрессия, учёт этапа и работа в рамках компетенции тренера."
+  canonicalPath="/ru/bezopasnost-i-podhod/"
+  alternatePath="/en/safety-approach/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Безопасность и подход' }]} />
+  <SafetyProcess lang={lang} asPage />
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+    </div>
+  </section>
+</PageLayout>

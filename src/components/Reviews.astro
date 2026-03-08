@@ -1,0 +1,76 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  asPage?: boolean;
+}
+
+const { lang, asPage } = Astro.props;
+const Heading = asPage ? 'h1' : 'h2';
+
+const content = {
+  ru: {
+    label: 'Отзывы',
+    title: 'Что говорят клиенты',
+    reviews: [
+      {
+        text: 'Наконец нашла тренера, с которым не нужно объяснять, что я боюсь навредить ребёнку. Всё аккуратно, спокойно и по делу.',
+        name: 'Мария',
+        context: 'Беременность · 28 недель',
+      },
+      {
+        text: 'После кесарева было страшно начинать. Анастасия помогла найти безопасный темп и вернуть уверенность.',
+        name: 'Алёна',
+        context: 'После кесарева · 4 месяца',
+      },
+      {
+        text: 'Мне важно было, чтобы никто не давил. Здесь просто спокойно работаешь, и тело постепенно отвечает.',
+        name: 'Евгения',
+        context: 'Восстановление после родов',
+      },
+    ],
+  },
+  en: {
+    label: 'Reviews',
+    title: 'What clients say',
+    reviews: [
+      {
+        text: 'I finally found a trainer where I do not need to explain my fear of harming the baby. Everything is careful, calm, and to the point.',
+        name: 'Maria',
+        context: 'Pregnancy · 28 weeks',
+      },
+      {
+        text: 'After a C-section, starting felt scary. Anastasia helped me find a safe pace and rebuild confidence.',
+        name: 'Alena',
+        context: 'After C-section · 4 months',
+      },
+      {
+        text: 'It was important for me not to feel pressured. Here, you work calmly, and your body gradually responds.',
+        name: 'Evgenia',
+        context: 'Postpartum recovery',
+      },
+    ],
+  },
+};
+
+const c = content[lang];
+---
+
+<section class="bg-[var(--color-bg-cream)] lg:min-h-[70vh] lg:flex lg:items-center">
+  <div class="container section w-full">
+    <p class="label-uppercase mb-6 text-center">{c.label}</p>
+    <Heading class="text-center mb-12">{c.title}</Heading>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {c.reviews.map(review => (
+        <div class="card p-8 text-left">
+          <p class="text-[12px] font-medium tracking-wide text-[var(--color-text-body)]/60 mb-4">{review.context}</p>
+          <p class="text-[16px] leading-relaxed mb-6 italic text-[var(--color-text-body)]">
+            &ldquo;{review.text}&rdquo;
+          </p>
+          <p class="text-[15px] font-semibold text-[var(--color-dark)]">— {review.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

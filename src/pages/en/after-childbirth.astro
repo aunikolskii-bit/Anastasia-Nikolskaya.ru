@@ -1,0 +1,63 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Postpartum Recovery in Samara — Anastasia Nikolskaya"
+  description="Gentle postpartum recovery in Samara and online. Safe return to activity after childbirth and C-section."
+  canonicalPath="/en/after-childbirth/"
+  alternatePath="/ru/posle-rodov/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'After Childbirth' }]} />
+
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">After Childbirth</p>
+        <h1>A gentle return to activity and body confidence</h1>
+        <p class="text-lg leading-relaxed mt-6 mb-10">
+          After childbirth, your body needs a careful approach — not "fast recovery", but a gradual, safe, and clear route. Work is adapted to your type of birth, timing, condition, and goals.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="card">
+          <h3 class="text-xl mb-3">Areas of focus</h3>
+          <ul class="space-y-3 text-[15px] leading-relaxed">
+            <li>Core, pelvic floor, and posture</li>
+            <li>Breathing and load management</li>
+            <li>Gradual return to activity</li>
+            <li>Post-C-section work</li>
+            <li>Renewed body confidence</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-xl mb-3">How to start</h3>
+          <ul class="space-y-3 text-[15px] leading-relaxed">
+            <li>Starter assessment: understanding your situation</li>
+            <li>Individual plan for your stage</li>
+            <li>Gentle progression without pressure</li>
+            <li>Format: in Samara or online</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-[13px] text-[#707070] italic mb-8 max-w-2xl mx-auto text-center">
+        If you have medical concerns, please consult your physician.
+      </p>
+
+      <div class="text-center">
+        <BookingCta lang={lang} label="Book a starter assessment" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

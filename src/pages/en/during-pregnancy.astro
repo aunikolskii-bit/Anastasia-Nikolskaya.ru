@@ -1,0 +1,169 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Pregnancy Training in Samara — Anastasia Nikolskaya"
+  description="Safe personal training for pregnant women in Samara and online. Individually adapted to your stage, condition, and restrictions."
+  canonicalPath="/en/during-pregnancy/"
+  alternatePath="/ru/beremennost/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'During Pregnancy' }]} />
+
+  <!-- Section 1: Hero -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
+        <div class="lg:py-4">
+          <p class="label-uppercase mb-4">During pregnancy</p>
+          <h1>Safe training during pregnancy, tailored to your stage and how you feel</h1>
+          <p class="text-lg leading-relaxed mt-6 mb-8">
+            Movement during pregnancy can be valuable, but it should feel calm, clear, and adapted to your stage. Each program is built around your term, how you feel, your current level, and your goals — in Samara and online.
+          </p>
+          <div class="grid grid-cols-2 gap-x-8 gap-y-3 mb-8">
+            {['Tailored to your stage', 'Individual adaptation', 'No pressure or overload', 'Samara and online'].map(item => (
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+                <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
+              </div>
+            ))}
+          </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <BookingCta lang={lang} label="Book an intro session" />
+            <a href="#how-it-works" class="text-[15px] font-medium text-[var(--color-primary-dark)] hover:underline">
+              How it works
+            </a>
+          </div>
+        </div>
+        <div>
+          <img
+            src="/images/group-training.jpg"
+            alt="Group training for pregnant women — Anastasia Nikolskaya leading a session"
+            class="w-full h-auto aspect-[4/3] object-cover object-center rounded-2xl"
+            loading="eager"
+            width="1200"
+            height="900"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: This is for you if -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center mb-10">This is for you if</h2>
+        <ul class="space-y-5">
+          {[
+            'you want to stay active during pregnancy safely and without extra stress',
+            'you want to understand what is appropriate for your stage right now',
+            'you do not want pressure, harsh load, or random exercises',
+            'you need a calm personal plan, not a generic routine',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: How it works -->
+  <section id="how-it-works" class="bg-[var(--color-bg-light)]">
+    <div class="container section">
+      <h2 class="text-center mb-12">How it works</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          { title: 'Intro session', text: 'We start by calmly reviewing your stage, how you feel, any limitations, and your goals.' },
+          { title: 'Personal adaptation', text: 'Exercises and load are selected for your stage, not from a one-size-fits-all template.' },
+          { title: 'A calm pace', text: 'No rushing, no pressure, and no feeling that you need to keep up.' },
+          { title: 'A clear path', text: 'You understand what we are doing, why it matters, and how to move forward safely.' },
+        ].map(card => (
+          <div class="card p-8">
+            <h3 class="text-lg font-semibold mb-3">{card.title}</h3>
+            <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: What we can work on -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center mb-10">What we can work on</h2>
+        <ul class="space-y-5">
+          {[
+            'gentle support for staying active during pregnancy',
+            'posture and comfort in movement',
+            'breathing and load control',
+            'stability and confidence in your body',
+            'preparing the body for childbirth through calm, regular work',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Safety and scope -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="mb-6">Safety and scope</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          This work stays within the trainer's professional scope and does not replace medical advice. If there are any concerns about contraindications, symptoms, or pregnancy monitoring, I recommend discussing training with your doctor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Ways to work together -->
+  <section class="bg-[var(--color-bg-light)]">
+    <div class="container section">
+      <h2 class="text-center mb-12">Ways to work together</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: 'Intro session', text: 'A calm first step to understand your situation and choose the right format.' },
+          { title: 'Personal guidance 1:1', text: 'Individual work tailored to your stage, how you feel, and your goals.' },
+          { title: 'Online format', text: 'A good option if you prefer to work from home in a calm and clear way.' },
+        ].map(card => (
+          <div class="card p-8">
+            <h3 class="text-lg font-semibold mb-3">{card.title}</h3>
+            <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Final CTA -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Start with a clear first step</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          In the intro session, we will review your stage, how you feel, and your goals, and calmly decide which format suits you best.
+        </p>
+        <BookingCta lang={lang} label="Book an intro session" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

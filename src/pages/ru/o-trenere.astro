@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="О тренере — Анастасия Никольская"
+  description="Анастасия Никольская — персональный тренер для женщин во время беременности и после родов в Самаре. Узкая специализация, безопасный подход."
+  canonicalPath="/ru/o-trenere/"
+  alternatePath="/en/about/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'О тренере' }]} />
+
+  <section class="bg-white">
+    <div class="container section">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="label-uppercase mb-4">О тренере</p>
+          <h1>Анастасия Никольская</h1>
+          <p class="text-lg leading-relaxed mt-6 mb-8">
+            Персональный тренер с узкой специализацией на работе с женщинами во время беременности и после родов. Работаю в Самаре и онлайн.
+          </p>
+          <div class="space-y-6 text-[15px] leading-relaxed">
+            <p>
+              Мой подход — это не «фитнес любой ценой», а бережное сопровождение с учётом того, на каком этапе вы находитесь. Каждая программа строится индивидуально: под ваш срок, самочувствие, ограничения и цели.
+            </p>
+            <p>
+              Я работаю в рамках компетенции тренера — движение, физическая подготовка, адаптация нагрузки. Если у вас есть медицинские вопросы, я всегда рекомендую консультацию врача.
+            </p>
+            <p>
+              Главное, чего я хочу для каждой клиентки: чтобы вам было спокойно, безопасно и понятно, что делать дальше.
+            </p>
+          </div>
+
+          <div class="mt-10">
+            <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+            <div class="mt-4">
+              <FallbackContact lang={lang} />
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="/images/about-method.jpg"
+            alt="Анастасия Никольская корректирует технику — индивидуальный подход к каждой клиентке"
+            class="rounded-sm w-full h-auto mt-4"
+            loading="lazy"
+            width="1200"
+            height="900"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

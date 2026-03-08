@@ -1,0 +1,31 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  items: { label: string; href?: string }[];
+}
+
+const { lang, items } = Astro.props;
+const homeLabel = t(lang, 'nav.home');
+const homeHref = `/${lang}/`;
+---
+
+<nav aria-label="Breadcrumb" class="container py-4">
+  <ol class="flex flex-wrap items-center gap-1.5 text-[13px] text-[var(--color-text-body)]/60">
+    <li>
+      <a href={homeHref} class="hover:text-[var(--color-primary)] transition-colors no-underline py-2 min-h-[44px] inline-flex items-center">{homeLabel}</a>
+    </li>
+    {items.map((item, i) => (
+      <li class="flex items-center gap-1.5">
+        <span aria-hidden="true">/</span>
+        {item.href && i < items.length - 1 ? (
+          <a href={item.href} class="hover:text-[var(--color-primary)] transition-colors no-underline py-2 min-h-[44px] inline-flex items-center">{item.label}</a>
+        ) : (
+          <span class="text-[var(--color-dark)]">{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

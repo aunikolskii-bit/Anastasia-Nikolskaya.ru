@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.lang === 'ru');
+  return posts.map((post) => {
+    const slug = post.slug.replace('ru/', '');
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Determine alternate path: counterpart post or blog index
+let alternatePath = '/en/blog/';
+if (post.data.counterpart) {
+  const enPosts = await getCollection('blog', ({ data }) => data.lang === 'en');
+  const counterpartPost = enPosts.find((p) => p.slug.replace('en/', '') === post.data.counterpart);
+  if (counterpartPost) {
+    alternatePath = `/en/blog/${post.data.counterpart}/`;
+  }
+}
+---
+
+<BlogPostLayout
+  lang="ru"
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  canonicalPath={`/ru/blog/${post.slug.replace('ru/', '')}/`}
+  alternatePath={alternatePath}
+>
+  <Content />
+</BlogPostLayout>

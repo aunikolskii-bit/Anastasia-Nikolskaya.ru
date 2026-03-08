@@ -1,0 +1,157 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Formats & Pricing — Anastasia Nikolskaya"
+  description="Personal training, postpartum recovery, mini-groups, and online support. Starting from 3,500 RUB for an intro session."
+  canonicalPath="/en/formats-pricing/"
+  alternatePath="/ru/formaty-i-ceny/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Formats & Pricing' }]} />
+
+  <!-- Section 1: Intro -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h1>Work formats and pricing</h1>
+        <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
+          I work individually and in mini-groups, in Samara and online.
+          The format is selected based on your stage, how you feel, and your goals.
+          You can start with an intro session.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Featured entry — Starter -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="card border-l-4 border-l-[var(--color-primary)] p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-start">
+          <div>
+            <h2 class="text-2xl mb-3">Intro session</h2>
+            <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-6">
+              A calm first step: getting to know your situation, goals and limitations, with a clear first understanding of how to move forward.
+            </p>
+            <ul class="space-y-2">
+              {[
+                'Getting to know your situation',
+                'Assessment of your current condition',
+                'Discussion of goals and limitations',
+                'Recommendations on the right format',
+                'A clear understanding of how to move forward',
+              ].map(item => (
+                <li class="flex items-start gap-2.5">
+                  <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+                  <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="md:text-right">
+            <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-3xl md:text-4xl mb-4">from 3,500 RUB</p>
+            <BookingCta lang={lang} label="Book an intro session" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Core — Personal guidance 1:1 -->
+  <section class="bg-white">
+    <div class="container section">
+      <h2 class="mb-3">Personal guidance 1:1</h2>
+      <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-10 max-w-2xl">
+        Individual work tailored to your stage, condition, and goals — during pregnancy, postpartum, or after a C-section.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { sessions: '4 sessions', price: 'from 16,000 RUB', note: 'To get started' },
+          { sessions: '8 sessions', price: 'from 30,000 RUB', note: 'Core program' },
+          { sessions: '12 sessions', price: 'from 44,000 RUB', note: 'In-depth program' },
+        ].map(tier => (
+          <div class="card p-6 text-center">
+            <p class="text-[14px] text-[var(--color-text-body)]/60 mb-2">{tier.note}</p>
+            <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-2xl mb-1">{tier.price}</p>
+            <p class="text-[15px] text-[var(--color-text-body)]">{tier.sessions}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Secondary — Mini-group -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="card p-8">
+        <h2 class="text-xl mb-3">Mini-groups</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-3">
+          Small group sessions of up to 4 people. A good fit if you prefer working alongside others while still receiving individual attention.
+        </p>
+        <p class="text-[14px] text-[var(--color-text-body)]/60">
+          Pricing and availability are confirmed separately.
+          <a href="https://wa.me/79270101378" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline no-underline">Get in touch</a> to check the current schedule.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Online / Offline -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="mb-6">Online and in-person</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          All formats are available in person in Samara and online. The format is chosen based on your convenience. Online works well if you prefer working from home — the quality of guidance stays the same.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Mini FAQ -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="text-center mb-10">Common questions</h2>
+      <div class="max-w-2xl mx-auto space-y-6">
+        {[
+          { q: 'Where should I start?', a: 'With an intro session. It is a calm first step where we review your situation and choose the right format.' },
+          { q: 'Do I need an intro session before a course?', a: 'I recommend it — it helps me understand your stage and goals, and helps you feel how the work is structured.' },
+          { q: 'Can I work online?', a: 'Yes. All formats are available online without losing quality.' },
+          { q: 'Is this suitable after a C-section?', a: 'Yes, the program is adapted to your recovery stage and how you feel.' },
+          { q: 'How do I know which format is right for me?', a: 'That is exactly what the intro session is for — it helps you decide.' },
+        ].map(item => (
+          <details class="group">
+            <summary class="flex items-center justify-between cursor-pointer py-3 text-[16px] font-medium text-[var(--color-dark)] hover:text-[var(--color-primary-dark)] transition-colors">
+              {item.q}
+              <span class="ml-4 shrink-0 text-[var(--color-text-body)]/40 group-open:rotate-45 transition-transform text-xl leading-none" aria-hidden="true">+</span>
+            </summary>
+            <p class="pb-3 text-[15px] leading-relaxed text-[var(--color-text-body)]">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Final CTA -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Start with an intro session</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          A calm first step: we will get to know each other, review your situation, and decide how to move forward.
+        </p>
+        <BookingCta lang={lang} label="Book an intro session" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

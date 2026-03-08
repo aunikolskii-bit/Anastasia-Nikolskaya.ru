@@ -1,0 +1,80 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 left-0 right-0 z-50 hidden"
+  role="dialog"
+  aria-label={t(lang, 'consent.title')}
+>
+  <div class="bg-white border-t border-[var(--color-border)] shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+    <div class="container px-5 py-5 md:px-8 md:py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="max-w-xl">
+        <p class="font-semibold text-[var(--color-dark)] text-[15px] mb-1">{t(lang, 'consent.title')}</p>
+        <p class="text-[14px] text-[var(--color-text-body)]">{t(lang, 'consent.text')}</p>
+      </div>
+      <div class="flex gap-3 shrink-0">
+        <button
+          id="consent-accept"
+          class="btn btn-primary py-3 px-6 text-[14px]"
+        >
+          {t(lang, 'consent.accept')}
+        </button>
+        <button
+          id="consent-decline"
+          class="btn btn-secondary py-3 px-6 text-[14px]"
+        >
+          {t(lang, 'consent.decline')}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CONSENT_KEY = 'analytics_consent';
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('consent-accept');
+  const declineBtn = document.getElementById('consent-decline');
+
+  function getConsent(): string | null {
+    return localStorage.getItem(CONSENT_KEY);
+  }
+
+  function setConsent(value: 'accepted' | 'declined') {
+    localStorage.setItem(CONSENT_KEY, value);
+    banner?.classList.add('hidden');
+    if (value === 'accepted') {
+      window.dispatchEvent(new CustomEvent('analytics-consent-granted'));
+    }
+  }
+
+  function showBanner() {
+    banner?.classList.remove('hidden');
+  }
+
+  // Show banner if no choice saved
+  const consent = getConsent();
+  if (!consent) {
+    showBanner();
+  } else if (consent === 'accepted') {
+    window.dispatchEvent(new CustomEvent('analytics-consent-granted'));
+  }
+
+  acceptBtn?.addEventListener('click', () => setConsent('accepted'));
+  declineBtn?.addEventListener('click', () => setConsent('declined'));
+
+  // Cookie settings link (in footer) can re-open the banner
+  window.addEventListener('reopen-consent', () => {
+    localStorage.removeItem(CONSENT_KEY);
+    showBanner();
+  });
+</script>

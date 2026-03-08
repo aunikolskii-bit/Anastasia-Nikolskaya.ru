@@ -1,0 +1,125 @@
+---
+/**
+ * Review index — internal page listing all site pages for QA.
+ * Not linked from nav. Not in sitemap (Astro excludes unlisted pages).
+ */
+
+const pages = [
+  { path: '/ru/', label: 'Главная (RU)' },
+  { path: '/en/', label: 'Homepage (EN)' },
+  { path: '/ru/beremennost/', label: 'Беременность (RU)' },
+  { path: '/en/during-pregnancy/', label: 'During Pregnancy (EN)' },
+  { path: '/ru/posle-rodov/', label: 'После родов (RU)' },
+  { path: '/en/after-childbirth/', label: 'After Childbirth (EN)' },
+  { path: '/ru/formaty-i-ceny/', label: 'Форматы и цены (RU)' },
+  { path: '/en/formats-pricing/', label: 'Formats & Pricing (EN)' },
+  { path: '/ru/o-trenere/', label: 'О тренере (RU)' },
+  { path: '/en/about/', label: 'About (EN)' },
+  { path: '/ru/bezopasnost-i-podhod/', label: 'Безопасность (RU)' },
+  { path: '/en/safety-approach/', label: 'Safety & Approach (EN)' },
+  { path: '/ru/otzyvy/', label: 'Отзывы (RU)' },
+  { path: '/en/reviews/', label: 'Reviews (EN)' },
+  { path: '/ru/faq/', label: 'FAQ (RU)' },
+  { path: '/en/faq/', label: 'FAQ (EN)' },
+  { path: '/ru/kontakty/', label: 'Контакты (RU)' },
+  { path: '/en/contact/', label: 'Contact (EN)' },
+  { path: '/ru/blog/', label: 'Блог (RU)' },
+  { path: '/en/blog/', label: 'Blog (EN)' },
+  { path: '/ru/blog/trenirovki-dlya-beremennyh/', label: 'Blog Post: Тренировки (RU)' },
+  { path: '/en/blog/safe-pregnancy-training/', label: 'Blog Post: Safe Training (EN)' },
+  { path: '/ru/blog/vosstanovlenie-posle-rodov/', label: 'Blog Post: Восстановление (RU)' },
+  { path: '/en/blog/postpartum-recovery-start/', label: 'Blog Post: Postpartum (EN)' },
+  { path: '/ru/privacy/', label: 'Приватность (RU)' },
+  { path: '/en/privacy/', label: 'Privacy (EN)' },
+  { path: '/ru/consent/', label: 'Согласие (RU)' },
+  { path: '/en/consent/', label: 'Consent (EN)' },
+];
+
+const widths = [320, 360, 375, 390, 414, 768, 820, 1024, 1280, 1440];
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Review — All Pages</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; padding: 32px; background: #f5f5f5; color: #333; }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 14px; margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .card h3 { font-size: 16px; margin-bottom: 4px; }
+    .card .path { font-size: 13px; color: #888; font-family: monospace; margin-bottom: 12px; }
+    .card a {
+      display: inline-block;
+      font-size: 13px;
+      color: #C4766C;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+    .card a:hover { text-decoration: underline; }
+    .widths { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+    .widths span {
+      font-size: 11px;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-family: monospace;
+    }
+    .section-label {
+      grid-column: 1 / -1;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+    }
+    .commands {
+      background: #1a1816;
+      color: #e0e0e0;
+      padding: 20px 24px;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .commands code { color: #C4766C; }
+  </style>
+</head>
+<body>
+  <h1>Site Review</h1>
+  <p class="meta">{pages.length} pages &times; {widths.length} widths = {pages.length * widths.length} screenshots</p>
+
+  <div class="commands">
+    <code>npm run review:screens</code> — Capture all screenshots (Playwright)<br/>
+    <code>npm run review:sheets</code> — Generate contact sheets from screenshots
+  </div>
+
+  <div class="grid">
+    <div class="section-label">All Pages</div>
+    {pages.map(page => (
+      <div class="card">
+        <h3>{page.label}</h3>
+        <p class="path">{page.path}</p>
+        <a href={page.path} target="_blank">Open page</a>
+        <div class="widths">
+          {widths.map(w => (
+            <span>{w}px</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</body>
+</html>

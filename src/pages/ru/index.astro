@@ -1,0 +1,40 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import RouteSelector from '../../components/RouteSelector.astro';
+import HowIWork from '../../components/HowIWork.astro';
+import AboutTrainer from '../../components/AboutTrainer.astro';
+import OfferLadder from '../../components/OfferLadder.astro';
+import Reviews from '../../components/Reviews.astro';
+import FinalCta from '../../components/FinalCta.astro';
+
+const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Анастасия Никольская',
+  url: 'https://anastasia-nikolskaya.ru',
+  telephone: '+79270101378',
+  areaServed: ['Самара', 'Онлайн'],
+  availableLanguage: ['ru', 'en'],
+  description: 'Бережное персональное сопровождение женщин во время беременности и после родов в Самаре и онлайн.',
+};
+---
+
+<PageLayout
+  lang={lang}
+  title="Анастасия Никольская — Бережное сопровождение во время беременности и после родов в Самаре"
+  description="Персональные тренировки и сопровождение для женщин во время беременности и после родов в Самаре и онлайн. Безопасный подход, мягкий вход, индивидуальный маршрут."
+  canonicalPath="/ru/"
+  alternatePath="/en/"
+  structuredData={structuredData}
+>
+  <Hero lang={lang} />
+  <RouteSelector lang={lang} />
+  <HowIWork lang={lang} />
+  <AboutTrainer lang={lang} />
+  <OfferLadder lang={lang} />
+  <Reviews lang={lang} />
+  <FinalCta lang={lang} />
+</PageLayout>

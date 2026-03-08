@@ -1,0 +1,24 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Reviews from '../../components/Reviews.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Reviews — Anastasia Nikolskaya"
+  description="Client reviews of personal training during pregnancy and after childbirth with Anastasia Nikolskaya in Samara."
+  canonicalPath="/en/reviews/"
+  alternatePath="/ru/otzyvy/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Reviews' }]} />
+  <Reviews lang={lang} asPage />
+  <section class="bg-white">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Book a starter assessment" />
+    </div>
+  </section>
+</PageLayout>

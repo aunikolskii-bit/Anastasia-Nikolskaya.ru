@@ -1,0 +1,58 @@
+---
+import type { Lang } from '../i18n/utils';
+import SeoHead from '../components/SeoHead.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import AnalyticsLoader from '../components/AnalyticsLoader.astro';
+import '../styles/global.css';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  alternatePath: string;
+  ogImage?: string;
+  structuredData?: Record<string, unknown>;
+}
+
+const { lang, title, description, canonicalPath, alternatePath, ogImage, structuredData } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Preload heading font -->
+    <link rel="preload" href="/fonts/lora-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/lora-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Preload brand wordmark font -->
+    <link rel="preload" href="/fonts/gentium-plus-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/gentium-plus-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <SeoHead
+      lang={lang}
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      alternatePath={alternatePath}
+      ogImage={ogImage}
+      structuredData={structuredData}
+    />
+
+    <!-- RSS autodiscovery -->
+    <link rel="alternate" type="application/rss+xml" title="Blog — Anastasia Nikolskaya" href="/rss.xml" />
+  </head>
+  <body>
+    <slot />
+    <CookieConsent lang={lang} />
+    <AnalyticsLoader />
+  </body>
+</html>

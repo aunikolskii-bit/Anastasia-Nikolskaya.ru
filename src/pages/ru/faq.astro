@@ -1,0 +1,47 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Можно ли начать, если я никогда раньше не тренировалась?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Да. Программа адаптируется под ваш текущий уровень и самочувствие.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Можно ли начать после кесарева сечения?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Это зависит от срока восстановления, самочувствия и рекомендаций врача. Нагрузка всегда подбирается аккуратно и поэтапно.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Можно ли заниматься онлайн?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Да. Онлайн подходит как самостоятельный формат или как поддержка между встречами.' },
+    },
+  ],
+};
+---
+
+<PageLayout
+  lang={lang}
+  title="Вопросы и ответы — Анастасия Никольская"
+  description="Ответы на частые вопросы о тренировках во время беременности и после родов в Самаре."
+  canonicalPath="/ru/faq/"
+  alternatePath="/en/faq/"
+  structuredData={structuredData}
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Вопросы и ответы' }]} />
+  <FaqSection lang={lang} asPage />
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+    </div>
+  </section>
+</PageLayout>

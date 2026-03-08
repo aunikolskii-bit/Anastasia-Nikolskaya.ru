@@ -1,0 +1,47 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Can I start if I have never trained before?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The plan is adapted to your current level and how you feel now.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I start after a C-section?',
+      acceptedAnswer: { '@type': 'Answer', text: 'That depends on timing, how you feel, and medical guidance. Load is always progressed carefully and step by step.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I train online?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Online work can be a standalone format or a support layer between sessions.' },
+    },
+  ],
+};
+---
+
+<PageLayout
+  lang={lang}
+  title="FAQ — Anastasia Nikolskaya"
+  description="Answers to common questions about pregnancy and postpartum training in Samara."
+  canonicalPath="/en/faq/"
+  alternatePath="/ru/faq/"
+  structuredData={structuredData}
+>
+  <Breadcrumb lang={lang} items={[{ label: 'FAQ' }]} />
+  <FaqSection lang={lang} asPage />
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Book a starter assessment" />
+    </div>
+  </section>
+</PageLayout>

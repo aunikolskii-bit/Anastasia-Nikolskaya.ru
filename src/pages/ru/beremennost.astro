@@ -1,0 +1,169 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
+
+const lang = 'ru';
+---
+
+<PageLayout
+  lang={lang}
+  title="Тренировки во время беременности в Самаре — Анастасия Никольская"
+  description="Безопасные персональные тренировки для беременных в Самаре и онлайн. Индивидуальный подход с учётом срока, самочувствия и ограничений."
+  canonicalPath="/ru/beremennost/"
+  alternatePath="/en/during-pregnancy/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Во время беременности' }]} />
+
+  <!-- Section 1: Hero -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
+        <div class="lg:py-4">
+          <p class="label-uppercase mb-4">Во время беременности</p>
+          <h1>Безопасная работа во время беременности с&nbsp;учётом вашего срока и&nbsp;самочувствия</h1>
+          <p class="text-lg leading-relaxed mt-6 mb-8">
+            Во время беременности движение особенно важно, но оно должно быть спокойным, понятным и&nbsp;адаптированным под ваш этап. Программа строится с&nbsp;учётом срока, самочувствия, уровня подготовки и&nbsp;ваших задач&nbsp;— в&nbsp;Самаре и&nbsp;онлайн.
+          </p>
+          <div class="grid grid-cols-2 gap-x-8 gap-y-3 mb-8">
+            {['С учётом срока', 'Индивидуальная адаптация', 'Без перегруза и давления', 'Самара и онлайн'].map(item => (
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+                <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
+              </div>
+            ))}
+          </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+            <a href="#how-it-works" class="text-[15px] font-medium text-[var(--color-primary-dark)] hover:underline">
+              Как это проходит
+            </a>
+          </div>
+        </div>
+        <div>
+          <img
+            src="/images/group-training.jpg"
+            alt="Групповая тренировка для беременных — Анастасия Никольская ведёт занятие"
+            class="w-full h-auto aspect-[4/3] object-cover object-center rounded-2xl"
+            loading="eager"
+            width="1200"
+            height="900"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: This is for you if -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center mb-10">Это для вас, если</h2>
+        <ul class="space-y-5">
+          {[
+            'вы хотите двигаться во время беременности безопасно и без лишнего стресса',
+            'вам важно понимать, что можно именно сейчас',
+            'вы не хотите давления, жёстких нагрузок и случайных упражнений',
+            'вам нужен спокойный персональный маршрут, а не общий шаблон',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: How it works -->
+  <section id="how-it-works" class="bg-[var(--color-bg-light)]">
+    <div class="container section">
+      <h2 class="text-center mb-12">Как проходит работа</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          { title: 'Стартовая встреча', text: 'Сначала мы спокойно разбираем ваш срок, самочувствие, ограничения и задачи.' },
+          { title: 'Персональная адаптация', text: 'Нагрузка и упражнения подбираются под ваш этап, а не по универсальной схеме.' },
+          { title: 'Спокойный темп', text: 'Без гонки, без давления и без ощущения, что нужно что-то «догонять».' },
+          { title: 'Понятный маршрут', text: 'Вы понимаете, зачем нужны упражнения, что мы делаем и как двигаться дальше.' },
+        ].map(card => (
+          <div class="card p-8">
+            <h3 class="text-lg font-semibold mb-3">{card.title}</h3>
+            <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: What we can work on -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center mb-10">С чем можно работать</h2>
+        <ul class="space-y-5">
+          {[
+            'мягкая поддержка активности во время беременности',
+            'осанка и комфорт в движении',
+            'дыхание и контроль нагрузки',
+            'ощущение устойчивости и уверенности в теле',
+            'подготовка тела к родам через спокойную и регулярную работу',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Safety and scope -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="mb-6">Безопасность и границы работы</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          Работа строится в&nbsp;рамках компетенции тренера и&nbsp;не&nbsp;заменяет медицинскую консультацию. При вопросах, связанных с&nbsp;противопоказаниями, самочувствием или наблюдением беременности, я&nbsp;рекомендую согласовать занятия с&nbsp;врачом.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Ways to work together -->
+  <section class="bg-[var(--color-bg-light)]">
+    <div class="container section">
+      <h2 class="text-center mb-12">Форматы работы</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: 'Стартовая встреча', text: 'Чтобы спокойно понять вашу ситуацию и выбрать подходящий формат.' },
+          { title: 'Персональное сопровождение 1:1', text: 'Индивидуальная работа под ваш срок, самочувствие и задачи.' },
+          { title: 'Онлайн-формат', text: 'Подходит, если вам важно заниматься из дома в спокойном и понятном режиме.' },
+        ].map(card => (
+          <div class="card p-8">
+            <h3 class="text-lg font-semibold mb-3">{card.title}</h3>
+            <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Final CTA -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Начните с понятного первого шага</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          На стартовой встрече мы разберём ваш срок, самочувствие и&nbsp;задачи и&nbsp;спокойно поймём, какой формат подойдёт именно вам.
+        </p>
+        <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

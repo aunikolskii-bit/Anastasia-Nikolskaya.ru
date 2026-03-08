@@ -1,0 +1,73 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Data Consent — Anastasia Nikolskaya"
+  description="Information about data consent and analytics on this website."
+  canonicalPath="/en/consent/"
+  alternatePath="/ru/consent/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Data Consent' }]} />
+
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">Legal</p>
+        <h1>Data Consent</h1>
+
+        <div class="mt-8 space-y-8 text-[15px] leading-relaxed text-[var(--color-text-body)]">
+
+          <div>
+            <h2 class="text-xl mb-3">Website analytics</h2>
+            <p>
+              On your first visit, you are asked to consent to the use of analytics (Yandex.Metrika).
+              Analytics is used solely to collect anonymous statistics: page views, traffic sources, and device type.
+            </p>
+            <p class="mt-3">
+              If you click "Accept", Yandex.Metrika loads and may set cookies.
+              If you click "Continue without analytics", the analytics script does not load.
+            </p>
+            <p class="mt-3">
+              Your choice is stored in your browser's localStorage and is not transmitted to any server.
+              You can change your decision at any time via the "Cookie settings" link in the site footer.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Booking</h2>
+            <p>
+              Booking is handled through the external service YCLIENTS. When booking, you enter your data (name, phone) directly in YCLIENTS.
+              This website does not collect, store, or process that data.
+            </p>
+            <p class="mt-3">
+              Processing of your personal data during booking is governed by YCLIENTS' privacy policy and terms of use.
+              Before booking, please review the data handling terms in the YCLIENTS interface.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Direct contact</h2>
+            <p>
+              If you call or message us using the contact details on this site, you share your contact information at your own initiative.
+              This data is used only to respond to your inquiry.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Your rights</h2>
+            <p>
+              You can withdraw analytics consent at any time via the cookie settings link in the site footer.
+              For questions about data handling, you can contact us by phone as listed on this site.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,97 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Privacy Policy — Anastasia Nikolskaya"
+  description="Information about data handling on anastasia-nikolskaya.ru."
+  canonicalPath="/en/privacy/"
+  alternatePath="/ru/privacy/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Privacy Policy' }]} />
+
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">Legal</p>
+        <h1>Privacy Policy</h1>
+
+        <div class="mt-8 space-y-8 text-[15px] leading-relaxed text-[var(--color-text-body)]">
+
+          <div>
+            <h2 class="text-xl mb-3">Overview</h2>
+            <p>
+              This policy describes how anastasia-nikolskaya.ru handles visitor information.
+              The website belongs to Anastasia Nikolskaya, an individual specialist (referred to as "we" below).
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">What data the website processes</h2>
+            <p>
+              This website does not contain any forms for collecting personal data. There are no contact forms, registration forms, or booking forms on this site.
+            </p>
+            <p class="mt-3">
+              Booking is handled through the external service
+              <a href="https://yclients.com/timetable/1767873/" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline">YCLIENTS</a>.
+              Personal data (name, phone number) is entered and processed directly in YCLIENTS, not on this website.
+              Data processing in YCLIENTS is governed by their own privacy policy.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Analytics</h2>
+            <p>
+              This website uses Yandex.Metrika to collect anonymous visit statistics (page views, traffic sources, device type).
+            </p>
+            <p class="mt-3">
+              Yandex.Metrika loads <strong>only after your explicit consent</strong>, which you can give or decline through the banner on your first visit.
+              Session replay (Webvisor), form analysis, and heatmaps are not used.
+            </p>
+            <p class="mt-3">
+              Yandex.Metrika may use cookies for analytics purposes. Your analytics preference is stored in your browser's localStorage.
+            </p>
+            <p class="mt-3">
+              You can change your decision at any time via the "Cookie settings" link in the site footer.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Other third-party services</h2>
+            <p>
+              This website does not use Google Analytics, Meta Pixel, or other tracking systems.
+              Fonts are loaded locally from the site server. No external font services are used.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Contact information</h2>
+            <p>
+              A phone number is listed on the site for direct contact. When you call or send a message via messenger, you share your contact details at your own initiative.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Medical disclaimer</h2>
+            <p>
+              Anastasia Nikolskaya's services are supportive personal training, not medical diagnosis, treatment, or rehabilitation.
+              If you have doubts or medical restrictions, consultation with your physician is recommended.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl mb-3">Changes</h2>
+            <p>
+              We reserve the right to update this policy. The current version is always available on this page.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

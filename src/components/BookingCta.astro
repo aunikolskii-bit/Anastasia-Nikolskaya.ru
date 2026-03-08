@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../i18n/utils';
+import { t, YCLIENTS_URL } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  variant?: 'primary' | 'secondary';
+  label?: string;
+  class?: string;
+}
+
+const { lang, variant = 'primary', label, class: className } = Astro.props;
+const buttonLabel = label || t(lang, 'cta.book');
+const btnClass = variant === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
+---
+
+<a
+  href={YCLIENTS_URL}
+  target="_blank"
+  rel="noopener"
+  class:list={[btnClass, className]}
+>
+  {buttonLabel}
+</a>

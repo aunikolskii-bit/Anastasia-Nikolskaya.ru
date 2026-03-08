@@ -1,0 +1,40 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import RouteSelector from '../../components/RouteSelector.astro';
+import HowIWork from '../../components/HowIWork.astro';
+import AboutTrainer from '../../components/AboutTrainer.astro';
+import OfferLadder from '../../components/OfferLadder.astro';
+import Reviews from '../../components/Reviews.astro';
+import FinalCta from '../../components/FinalCta.astro';
+
+const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Anastasia Nikolskaya',
+  url: 'https://anastasia-nikolskaya.ru',
+  telephone: '+79270101378',
+  areaServed: ['Samara', 'Online'],
+  availableLanguage: ['ru', 'en'],
+  description: 'Gentle personal support for women during pregnancy and after childbirth in Samara and online.',
+};
+---
+
+<PageLayout
+  lang={lang}
+  title="Anastasia Nikolskaya — Gentle Support During Pregnancy and After Childbirth in Samara"
+  description="Personal training and support for women during pregnancy and after childbirth in Samara and online. Safe approach, gentle start, personal route."
+  canonicalPath="/en/"
+  alternatePath="/ru/"
+  structuredData={structuredData}
+>
+  <Hero lang={lang} />
+  <RouteSelector lang={lang} />
+  <HowIWork lang={lang} />
+  <AboutTrainer lang={lang} />
+  <OfferLadder lang={lang} />
+  <Reviews lang={lang} />
+  <FinalCta lang={lang} />
+</PageLayout>

@@ -1,0 +1,24 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import SafetyProcess from '../../components/SafetyProcess.astro';
+import BookingCta from '../../components/BookingCta.astro';
+
+const lang = 'en';
+---
+
+<PageLayout
+  lang={lang}
+  title="Safety & Approach — Anastasia Nikolskaya"
+  description="Safe approach to training during pregnancy and after childbirth. Gentle progression, stage-aware, within trainer competence."
+  canonicalPath="/en/safety-approach/"
+  alternatePath="/ru/bezopasnost-i-podhod/"
+>
+  <Breadcrumb lang={lang} items={[{ label: 'Safety & Approach' }]} />
+  <SafetyProcess lang={lang} asPage />
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container py-12 text-center">
+      <BookingCta lang={lang} label="Book a starter assessment" />
+    </div>
+  </section>
+</PageLayout>
