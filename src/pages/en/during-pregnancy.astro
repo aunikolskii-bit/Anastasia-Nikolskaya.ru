@@ -2,7 +2,8 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
-import FallbackContact from '../../components/FallbackContact.astro';
+import ContactIcons from '../../components/ContactIcons.astro';
+import { t } from '../../i18n/utils';
 
 const lang = 'en';
 ---
@@ -160,9 +161,11 @@ const lang = 'en';
         <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
           In the intro session, we will review your stage, how you feel, and your goals, and calmly decide which format suits you best.
         </p>
-        <BookingCta lang={lang} label="Book an intro session" />
-        <div class="mt-4">
-          <FallbackContact lang={lang} />
+        <p class="text-[15px] font-semibold text-[var(--color-dark)] mb-4">
+          {t(lang, 'cta.contact.heading')}
+        </p>
+        <div class="flex justify-center">
+          <ContactIcons lang={lang} size="large" />
         </div>
       </div>
     </div>

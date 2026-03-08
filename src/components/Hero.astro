@@ -1,11 +1,12 @@
 ---
 /**
  * Hero — two-column: text+CTA left, trainer image right.
- * Trust pills below buttons.
+ * Trust pills below contact icons.
  * Image absorbed from formerly standalone lead image section.
  */
 import type { Lang } from '../i18n/utils';
-import BookingCta from './BookingCta.astro';
+import { t } from '../i18n/utils';
+import ContactIcons from './ContactIcons.astro';
 
 interface Props {
   lang: Lang;
@@ -18,7 +19,6 @@ const content = {
     eyebrow: 'Персональное сопровождение для женщин до и после родов',
     h1: 'Бережное сопровождение до и после родов',
     supporting: 'Спокойная и\u00A0безопасная работа во\u00A0время беременности и\u00A0после родов с\u00A0учётом срока, самочувствия и\u00A0ваших целей\u00A0— в\u00A0Самаре и\u00A0онлайн.',
-    ctaPrimary: 'Записаться на стартовую встречу',
     ctaSecondary: 'Как это проходит',
     imgAlt: 'Персональная работа тренера с беременной клиенткой',
     trust: [
@@ -31,7 +31,6 @@ const content = {
     eyebrow: 'Personal guidance before and after childbirth',
     h1: 'Gentle guidance before and after childbirth',
     supporting: 'Calm and safe guidance during pregnancy and after childbirth, tailored to your stage, how you feel, and what you need\u00A0— in Samara and online.',
-    ctaPrimary: 'Book an intro session',
     ctaSecondary: 'How it works',
     imgAlt: 'A trainer guiding a pregnant client during a personal session',
     trust: [
@@ -55,14 +54,19 @@ const c = content[lang];
         <p class="text-lg md:text-[19px] text-[var(--color-text-body)] leading-relaxed mb-10 max-w-[520px]">
           {c.supporting}
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-8">
-          <BookingCta lang={lang} label={c.ctaPrimary} class="md:py-6 md:px-8" />
-          <a
-            href="#how-it-works"
-            class="btn btn-secondary md:py-6 md:px-8"
-          >
-            {c.ctaSecondary}
-          </a>
+        <div class="mb-5">
+          <p class="text-[15px] font-semibold text-[var(--color-dark)] mb-3">
+            {t(lang, 'cta.contact.heading')}
+          </p>
+          <div class="flex items-center gap-4">
+            <ContactIcons lang={lang} size="large" />
+            <a
+              href="#how-it-works"
+              class="text-[15px] font-medium text-[var(--color-primary-dark)] hover:underline ml-2"
+            >
+              {c.ctaSecondary}
+            </a>
+          </div>
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap lg:flex-nowrap items-center gap-2">

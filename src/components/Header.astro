@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../i18n/utils';
-import { t, getNavItems, getAlternateLangUrl, YCLIENTS_URL } from '../i18n/utils';
+import { t, getNavItems, getAlternateLangUrl } from '../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -10,7 +10,8 @@ const { lang } = Astro.props;
 const navItems = getNavItems(lang);
 const alternateLangUrl = getAlternateLangUrl(Astro.url, lang);
 const homeHref = `/${lang}/`;
-const bookLabel = lang === 'ru' ? 'Записаться' : 'Book';
+const ctaLabel = lang === 'ru' ? 'Связаться' : 'Contact';
+const ctaHref = lang === 'ru' ? `/${lang}/kontakty/` : `/${lang}/contact/`;
 
 /* Desktop nav items — intentional scoped labels (shorter than mobile).
    Mobile labels continue to come from getNavItems() in i18n/utils.ts.
@@ -93,12 +94,10 @@ function isActive(href: string): boolean {
 
         <!-- CTA (inside contour) -->
         <a
-          href={YCLIENTS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={ctaHref}
           class="text-[13px] font-semibold bg-[var(--color-primary)] text-[#FAF8F5] px-5 py-2 rounded-full hover:bg-[var(--color-primary-dark)] transition-colors no-underline whitespace-nowrap"
         >
-          {bookLabel}
+          {ctaLabel}
         </a>
       </nav>
 
@@ -135,14 +134,12 @@ function isActive(href: string): boolean {
     aria-label="Mobile navigation"
   >
     <div class="container py-4 flex flex-col gap-1">
-      <!-- Full-width booking CTA at top of mobile menu -->
+      <!-- Full-width contact CTA at top of mobile menu -->
       <a
-        href={YCLIENTS_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={ctaHref}
         class="block w-full text-center py-3 px-4 text-[15px] font-semibold bg-[var(--color-primary)] text-[#FAF8F5] rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors no-underline mb-2"
       >
-        {bookLabel}
+        {ctaLabel}
       </a>
       {navItems.map(item => (
         <a

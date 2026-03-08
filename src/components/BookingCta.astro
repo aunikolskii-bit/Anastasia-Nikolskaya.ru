@@ -1,6 +1,11 @@
 ---
+/**
+ * BookingCta — now renders a direct-contact icon row.
+ * Replaces the former YCLIENTS booking button.
+ * Accepts the same props for backward compatibility (they are ignored).
+ */
 import type { Lang } from '../i18n/utils';
-import { t, YCLIENTS_URL } from '../i18n/utils';
+import ContactIcons from './ContactIcons.astro';
 
 interface Props {
   lang: Lang;
@@ -9,16 +14,9 @@ interface Props {
   class?: string;
 }
 
-const { lang, variant = 'primary', label, class: className } = Astro.props;
-const buttonLabel = label || t(lang, 'cta.book');
-const btnClass = variant === 'primary' ? 'btn btn-primary' : 'btn btn-secondary';
+const { lang, class: className } = Astro.props;
 ---
 
-<a
-  href={YCLIENTS_URL}
-  target="_blank"
-  rel="noopener"
-  class:list={[btnClass, className]}
->
-  {buttonLabel}
-</a>
+<div class:list={[className]}>
+  <ContactIcons lang={lang} />
+</div>

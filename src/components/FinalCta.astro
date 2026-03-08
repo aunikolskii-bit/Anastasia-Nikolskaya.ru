@@ -1,8 +1,7 @@
 ---
 import type { Lang } from '../i18n/utils';
 import { t } from '../i18n/utils';
-import BookingCta from './BookingCta.astro';
-import FallbackContact from './FallbackContact.astro';
+import ContactIcons from './ContactIcons.astro';
 
 interface Props {
   lang: Lang;
@@ -39,11 +38,11 @@ const c = content[lang];
       </div>
       <div>
         <h2 class="mb-8">{c.title}</h2>
-        <p class="text-lg leading-relaxed mb-8 max-w-md">{c.text}</p>
-        <BookingCta lang={lang} label={t(lang, 'cta.book.starter')} class="md:py-6 md:px-8" />
-        <div class="mt-6">
-          <FallbackContact lang={lang} />
-        </div>
+        <p class="text-lg leading-relaxed mb-10 max-w-md">{c.text}</p>
+        <p class="text-[15px] font-semibold text-[var(--color-dark)] mb-4">
+          {t(lang, 'cta.contact.heading')}
+        </p>
+        <ContactIcons lang={lang} size="large" />
       </div>
     </div>
   </div>

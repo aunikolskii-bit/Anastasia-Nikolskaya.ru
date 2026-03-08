@@ -38,6 +38,7 @@ export const ui = {
     'feedback.unclear': 'Остались вопросы',
     'feedback.thanks': 'Спасибо за ответ!',
     'feedback.close': 'Закрыть',
+    'cta.contact.heading': 'Выберите удобный способ связи',
   },
   en: {
     'site.name': 'Anastasia Nikolskaya',
@@ -78,6 +79,7 @@ export const ui = {
     'feedback.unclear': 'Had some questions',
     'feedback.thanks': 'Thank you!',
     'feedback.close': 'Close',
+    'cta.contact.heading': 'Choose how to get in touch',
   },
 } as const;
 

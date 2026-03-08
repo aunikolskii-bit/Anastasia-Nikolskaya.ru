@@ -9,23 +9,23 @@ interface Card {
 interface Props {
   lang: 'ru' | 'en';
   cards: Card[];
-  bookingUrl: string;
+  contactUrl: string;
 }
 
 const ctaLabels = {
   ru: {
-    pregnancy: 'Записаться на стартовую встречу',
-    postpartum: 'Записаться на восстановление',
-    unsure: 'Записаться на стартовую встречу',
+    pregnancy: 'Связаться по поводу беременности',
+    postpartum: 'Связаться по поводу восстановления',
+    unsure: 'Связаться для консультации',
   },
   en: {
-    pregnancy: 'Book an intro session',
-    postpartum: 'Book postpartum recovery',
-    unsure: 'Book an intro session',
+    pregnancy: 'Get in touch about pregnancy',
+    postpartum: 'Get in touch about recovery',
+    unsure: 'Get in touch for guidance',
   },
 };
 
-export default function RouteSelectorIsland({ lang, cards, bookingUrl }: Props) {
+export default function RouteSelectorIsland({ lang, cards, contactUrl }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
@@ -54,9 +54,7 @@ export default function RouteSelectorIsland({ lang, cards, bookingUrl }: Props) 
       {selected && (
         <div class="mt-8 text-center animate-fadeIn">
           <a
-            href={bookingUrl}
-            target="_blank"
-            rel="noopener"
+            href={contactUrl}
             class="btn btn-primary inline-block"
           >
             {ctaLabels[lang][selected as keyof typeof ctaLabels.ru]}

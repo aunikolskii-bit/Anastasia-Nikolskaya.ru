@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { YCLIENTS_URL } from '../i18n/utils';
 import '../styles/global.css';
 
 const lang = 'ru';
@@ -30,8 +29,7 @@ const lang = 'ru';
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="/ru/" class="btn btn-primary">На главную</a>
-              <a href={YCLIENTS_URL} target="_blank" rel="noopener" class="btn btn-secondary">Записаться</a>
-              <a href="/ru/kontakty/" class="btn btn-secondary">Контакты</a>
+              <a href="/ru/kontakty/" class="btn btn-secondary">Связаться</a>
             </div>
           </div>
 
@@ -43,7 +41,6 @@ const lang = 'ru';
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="/en/" class="btn btn-primary">Homepage</a>
-              <a href={YCLIENTS_URL} target="_blank" rel="noopener" class="btn btn-secondary">Book now</a>
               <a href="/en/contact/" class="btn btn-secondary">Contact</a>
             </div>
           </div>
