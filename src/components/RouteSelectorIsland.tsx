@@ -37,7 +37,7 @@ export default function RouteSelectorIsland({ lang, cards, bookingUrl }: Props) 
             onClick={() => setSelected(card.id === selected ? null : card.id)}
             class={`card text-left cursor-pointer transition-all duration-200 ${
               selected === card.id
-                ? 'border-[var(--color-primary)] shadow-[0_5px_25px_rgba(196,145,142,0.2)]'
+                ? 'border-[var(--color-primary)] shadow-[0_5px_25px_rgba(105,70,113,0.15)]'
                 : 'hover:border-[var(--color-primary)]/50'
             }`}
           >

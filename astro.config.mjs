@@ -16,6 +16,7 @@ export default defineConfig({
   integrations: [
     preact(),
     sitemap({
+      filter: (page) => !page.includes('/review'),
       i18n: {
         defaultLocale: 'ru',
         locales: {

@@ -24,6 +24,9 @@ const content = {
       'Самара и онлайн',
     ],
     imgAlt: 'Персональная работа тренера с беременной клиенткой',
+    credLabel: 'Образование',
+    credBtn: 'Смотреть все документы',
+    credHref: '/ru/o-trenere/#credentials',
   },
   en: {
     label: 'About',
@@ -36,8 +39,17 @@ const content = {
       'Samara & online',
     ],
     imgAlt: 'A trainer working one-on-one with a pregnant client',
+    credLabel: 'Education',
+    credBtn: 'View all credentials',
+    credHref: '/en/about/#credentials',
   },
 };
+
+const credentials = [
+  { src: '/images/credentials/diploma.jpg', w: 800, h: 574 },
+  { src: '/images/credentials/ifbb.jpg', w: 800, h: 1129 },
+  { src: '/images/credentials/instructorpro.jpg', w: 800, h: 1147 },
+];
 
 const c = content[lang];
 ---
@@ -60,6 +72,27 @@ const c = content[lang];
               <span class="text-[15px] text-[var(--color-text-body)]">{item}</span>
             </div>
           ))}
+        </div>
+        <!-- Credentials preview -->
+        <div class="mt-10">
+          <p class="label-uppercase mb-4">{c.credLabel}</p>
+          <div class="grid grid-cols-3 gap-3">
+            {credentials.map(cred => (
+              <div class="bg-white border border-[var(--color-border)] rounded-lg p-2 flex items-center justify-center aspect-[3/4]">
+                <img
+                  src={cred.src}
+                  alt=""
+                  class="max-w-full max-h-full object-contain"
+                  width={cred.w}
+                  height={cred.h}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          <div class="mt-5">
+            <a href={c.credHref} class="btn btn-secondary">{c.credBtn}</a>
+          </div>
         </div>
       </div>
       <!-- Image column -->

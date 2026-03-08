@@ -134,14 +134,66 @@ const lang = 'en';
   </section>
 
   <!-- Section 5: Education and certificates -->
-  <section class="bg-white">
+  <section id="credentials" class="bg-white">
     <div class="container section">
-      <div class="max-w-2xl">
+      <div class="max-w-2xl mb-10">
         <p class="label-uppercase mb-4">Education and certificates</p>
         <h2 class="mb-6">Verified qualifications</h2>
         <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
           Here you can see the main education and continuing training documents that support my professional background.
         </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            src: '/images/credentials/diploma.jpg',
+            w: 800, h: 574,
+            title: 'Professional Retraining Diploma',
+            issuer: 'Academy of the Russian Bodybuilding Federation',
+            detail: 'Personal Fitness Trainer, 280 hours',
+            date: '30.06.2024',
+          },
+          {
+            src: '/images/credentials/ifbb.jpg',
+            w: 800, h: 1129,
+            title: 'IFBB International Certification',
+            issuer: 'IFBB Academy',
+            detail: 'Personal Fitness Trainer, IFBB-C43170',
+            date: '30.06.2024',
+          },
+          {
+            src: '/images/credentials/instructorpro.jpg',
+            w: 800, h: 1147,
+            title: 'Fitness for Pregnant Women',
+            issuer: 'InstructorPRO',
+            detail: 'Practical and theoretical course',
+            date: '30.10.2025',
+          },
+          {
+            src: '/images/credentials/matrices.jpg',
+            w: 800, h: 1137,
+            title: 'Functional Training: Matrices',
+            issuer: 'FitnessStar, Samara',
+            detail: 'Training process structure and programming',
+            date: '08.11.2025',
+          },
+        ].map(doc => (
+          <div class="card p-5">
+            <div class="bg-white border border-[var(--color-border)] rounded-lg p-3 mb-4 flex items-center justify-center">
+              <img
+                src={doc.src}
+                alt={doc.title}
+                class="max-w-full max-h-[320px] object-contain"
+                width={doc.w}
+                height={doc.h}
+                loading="lazy"
+              />
+            </div>
+            <h3 class="text-[17px] font-semibold text-[var(--color-dark)] mb-1">{doc.title}</h3>
+            <p class="text-[15px] text-[var(--color-text-body)] mb-1">{doc.issuer}</p>
+            <p class="text-[14px] text-[var(--color-text-body)]/60">{doc.detail} &middot; {doc.date}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
