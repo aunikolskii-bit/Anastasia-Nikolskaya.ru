@@ -28,3 +28,6 @@ review/
 
 # Firecrawl cache
 .firecrawl/
+
+# Local Netlify folder
+.netlify

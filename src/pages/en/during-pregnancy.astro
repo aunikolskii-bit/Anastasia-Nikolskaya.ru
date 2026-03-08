@@ -18,15 +18,15 @@ const lang = 'en';
 
   <!-- Section 1: Hero -->
   <section class="bg-white">
-    <div class="container section">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
-        <div class="lg:py-4">
-          <p class="label-uppercase mb-4">During pregnancy</p>
+    <div class="container pt-10 md:pt-14 pb-16 md:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-start">
+        <div class="lg:pt-2">
+          <p class="label-uppercase mb-3">During pregnancy</p>
           <h1>Safe training during pregnancy, tailored to your stage and how you feel</h1>
-          <p class="text-lg leading-relaxed mt-6 mb-8">
+          <p class="text-lg leading-relaxed mt-5 mb-6">
             Movement during pregnancy can be valuable, but it should feel calm, clear, and adapted to your stage. Each program is built around your term, how you feel, your current level, and your goals — in Samara and online.
           </p>
-          <div class="grid grid-cols-2 gap-x-8 gap-y-3 mb-8">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-3 mb-7">
             {['Tailored to your stage', 'Individual adaptation', 'No pressure or overload', 'Samara and online'].map(item => (
               <div class="flex items-center gap-2.5">
                 <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
@@ -136,10 +136,11 @@ const lang = 'en';
   <section class="bg-[var(--color-bg-light)]">
     <div class="container section">
       <h2 class="text-center mb-12">Ways to work together</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {[
           { title: 'Intro session', text: 'A calm first step to understand your situation and choose the right format.' },
           { title: 'Personal guidance 1:1', text: 'Individual work tailored to your stage, how you feel, and your goals.' },
+          { title: 'Mini-group', text: 'A gentle group format for those who already understand their situation and goals.' },
           { title: 'Online format', text: 'A good option if you prefer to work from home in a calm and clear way.' },
         ].map(card => (
           <div class="card p-8">
