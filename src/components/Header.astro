@@ -111,67 +111,112 @@ function isActive(href: string): boolean {
       </a>
     </div>
 
-    <!-- Mobile menu button -->
+    <!-- Mobile menu button (hamburger only — close lives inside panel) -->
     <button
       id="mobile-menu-toggle"
       class="xl:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-dark)]"
       aria-label="Menu"
       aria-expanded="false"
     >
-      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
-      <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    </button>
+  </div>
+</header>
+
+<!-- ═══ Mobile / tablet side-panel menu ═══ -->
+<div
+  id="menu-backdrop"
+  class="fixed inset-0 z-40 bg-black/30 hidden transition-opacity duration-300 opacity-0 xl:hidden"
+  aria-hidden="true"
+></div>
+
+<nav
+  id="mobile-menu"
+  class="fixed top-0 right-0 z-50 h-[100dvh] w-[min(85vw,360px)] bg-white shadow-[-4px_0_20px_rgba(0,0,0,0.08)] translate-x-full transition-transform duration-300 ease-out overflow-y-auto overscroll-contain xl:hidden"
+  aria-label="Mobile navigation"
+>
+  <!-- Panel header -->
+  <div class="flex items-center justify-between h-16 md:h-20 px-5 border-b border-[var(--color-border)]">
+    <span class="text-[15px] font-semibold text-[var(--color-dark)]">
+      {lang === 'ru' ? 'Меню' : 'Menu'}
+    </span>
+    <button
+      id="menu-close-btn"
+      class="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-dark)]"
+      aria-label={lang === 'ru' ? 'Закрыть меню' : 'Close menu'}
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <!-- Mobile menu -->
-  <nav
-    id="mobile-menu"
-    class="xl:hidden hidden bg-white border-t border-[var(--color-border)]"
-    aria-label="Mobile navigation"
-  >
-    <div class="container py-4 flex flex-col gap-1">
-      <!-- Full-width contact CTA at top of mobile menu -->
+  <!-- Panel content -->
+  <div class="px-5 py-4 flex flex-col gap-0.5">
+    <a
+      href={ctaHref}
+      class="block w-full text-center py-2.5 px-4 text-[15px] font-semibold bg-[var(--color-primary)] text-[#FAF8F5] rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors no-underline mb-2"
+    >
+      {ctaLabel}
+    </a>
+    {navItems.map(item => (
       <a
-        href={ctaHref}
-        class="block w-full text-center py-3 px-4 text-[15px] font-semibold bg-[var(--color-primary)] text-[#FAF8F5] rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors no-underline mb-2"
+        href={item.href}
+        class="block py-2.5 px-2 text-[15px] text-[var(--color-text-body)] hover:text-[var(--color-primary)] hover:bg-[var(--color-bg-light)] rounded-lg transition-colors no-underline"
       >
-        {ctaLabel}
+        {item.label}
       </a>
-      {navItems.map(item => (
-        <a
-          href={item.href}
-          class="block py-3 px-2 text-[15px] text-[var(--color-text-body)] hover:text-[var(--color-primary)] hover:bg-[var(--color-bg-light)] rounded-lg transition-colors no-underline"
-        >
-          {item.label}
-        </a>
-      ))}
-      <div class="pt-3 mt-2 border-t border-[var(--color-border)]">
-        <a
-          href={alternateLangUrl}
-          class="inline-block text-[14px] font-semibold text-[var(--color-primary-dark)] border border-[var(--color-primary-dark)] px-4 py-2 rounded-full hover:bg-[var(--color-primary-dark)] hover:text-white transition-colors no-underline"
-        >
-          {t(lang, 'lang.switch')}
-        </a>
-      </div>
+    ))}
+    <div class="pt-3 mt-2 border-t border-[var(--color-border)]">
+      <a
+        href={alternateLangUrl}
+        class="inline-block text-[14px] font-semibold text-[var(--color-primary-dark)] border border-[var(--color-primary-dark)] px-4 py-2 rounded-full hover:bg-[var(--color-primary-dark)] hover:text-white transition-colors no-underline"
+      >
+        {t(lang, 'lang.switch')}
+      </a>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('menu-icon-open');
-  const iconClose = document.getElementById('menu-icon-close');
+  const backdrop = document.getElementById('menu-backdrop');
+  const closeBtn = document.getElementById('menu-close-btn');
+  const cookie = document.getElementById('cookie-consent');
 
-  toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
-    toggle?.setAttribute('aria-expanded', String(!isOpen));
+  function openMenu() {
+    menu?.classList.replace('translate-x-full', 'translate-x-0');
+    backdrop?.classList.remove('hidden');
+    requestAnimationFrame(() => backdrop?.classList.replace('opacity-0', 'opacity-100'));
+    document.body.classList.add('overflow-hidden');
+    document.documentElement.classList.add('overflow-hidden');
+    if (cookie) cookie.style.setProperty('display', 'none', 'important');
+    toggle?.setAttribute('aria-expanded', 'true');
+    closeBtn?.focus();
+  }
+
+  function closeMenu() {
+    menu?.classList.replace('translate-x-0', 'translate-x-full');
+    backdrop?.classList.replace('opacity-100', 'opacity-0');
+    document.body.classList.remove('overflow-hidden');
+    document.documentElement.classList.remove('overflow-hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.focus();
+    setTimeout(() => {
+      backdrop?.classList.add('hidden');
+      if (cookie) cookie.style.removeProperty('display');
+    }, 300);
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu?.classList.contains('translate-x-full')) {
+      closeMenu();
+    }
   });
 </script>
