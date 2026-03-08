@@ -22,9 +22,7 @@ const lang = 'ru';
       <div class="max-w-2xl">
         <h1>Форматы работы и&nbsp;цены</h1>
         <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
-          Я&nbsp;работаю индивидуально и&nbsp;в&nbsp;мини-группах, в&nbsp;Самаре и&nbsp;онлайн.
-          Формат подбирается под&nbsp;ваш этап, самочувствие и&nbsp;задачу.
-          Начать можно со&nbsp;стартовой встречи.
+          Начать можно со&nbsp;стартовой встречи. Она помогает спокойно понять вашу ситуацию, задачи и&nbsp;ограничения, а&nbsp;затем выбрать формат, который подойдёт именно вам.
         </p>
       </div>
     </div>
@@ -43,10 +41,10 @@ const lang = 'ru';
             <ul class="space-y-2">
               {[
                 'Знакомство и разбор вашей ситуации',
-                'Оценка текущего состояния',
-                'Обсуждение целей и ограничений',
-                'Рекомендации по формату работы',
-                'Понимание, как двигаться дальше',
+                'Понимание этапа и задач',
+                'Обсуждение ограничений и самочувствия',
+                'Ориентир по дальнейшей работе',
+                'Выбор подходящего формата',
               ].map(item => (
                 <li class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
@@ -69,7 +67,7 @@ const lang = 'ru';
     <div class="container section">
       <h2 class="mb-3">Персональное сопровождение 1:1</h2>
       <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-10 max-w-2xl">
-        Индивидуальная работа под&nbsp;ваш этап, самочувствие и&nbsp;задачу&nbsp;— во&nbsp;время беременности, после&nbsp;родов или после кесарева сечения.
+        Индивидуальная работа под&nbsp;ваш этап, состояние и&nbsp;цели. Подходит для&nbsp;периода беременности, восстановления после&nbsp;родов и&nbsp;мягкого возвращения к&nbsp;активности.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
@@ -91,13 +89,12 @@ const lang = 'ru';
   <section class="bg-[var(--color-bg-cream)]">
     <div class="container section">
       <div class="card p-8">
-        <h2 class="text-xl mb-3">Мини-группы</h2>
+        <h2 class="text-xl mb-3">Мини-группа</h2>
         <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-3">
-          Занятия в&nbsp;небольшой группе до&nbsp;4&nbsp;человек. Подходит тем, кому комфортнее заниматься в&nbsp;компании, но&nbsp;с&nbsp;вниманием к&nbsp;каждому.
+          Небольшая группа для&nbsp;тех, кому уже подходит более мягкий формат занятий после понимания своей ситуации и&nbsp;задач.
         </p>
         <p class="text-[14px] text-[var(--color-text-body)]/60">
           Стоимость и&nbsp;набор уточняются отдельно.
-          <a href="https://wa.me/79270101378" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline no-underline">Напишите</a>, чтобы узнать актуальное расписание.
         </p>
       </div>
     </div>
@@ -109,7 +106,7 @@ const lang = 'ru';
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="mb-6">Онлайн и&nbsp;офлайн</h2>
         <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
-          Все форматы доступны очно в&nbsp;Самаре и&nbsp;онлайн. Формат подбирается под&nbsp;ваше удобство. Онлайн-формат подходит, если вам удобнее заниматься из&nbsp;дома, — качество работы не&nbsp;теряется.
+          Занятия возможны в&nbsp;Самаре и&nbsp;онлайн. Формат определяется исходя из&nbsp;вашей задачи, состояния и&nbsp;удобства.
         </p>
       </div>
     </div>
@@ -143,9 +140,17 @@ const lang = 'ru';
   <section class="bg-white">
     <div class="container section">
       <div class="max-w-xl mx-auto text-center">
+        <img
+          src="/images/pricing-cta.jpg"
+          alt="Персональная работа тренера с беременной клиенткой"
+          class="w-full max-w-md mx-auto rounded-2xl mb-8"
+          width="512"
+          height="512"
+          loading="lazy"
+        />
         <h2 class="mb-6">Начните со&nbsp;стартовой встречи</h2>
         <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
-          Это спокойный первый шаг: мы познакомимся, разберём вашу ситуацию и&nbsp;решим, как двигаться дальше.
+          На&nbsp;первой встрече мы спокойно разберём вашу ситуацию и&nbsp;поймём, какой формат подойдёт именно вам.
         </p>
         <BookingCta lang={lang} label="Записаться на стартовую встречу" />
         <div class="mt-4">

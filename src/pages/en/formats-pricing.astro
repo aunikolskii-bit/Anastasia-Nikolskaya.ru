@@ -22,9 +22,7 @@ const lang = 'en';
       <div class="max-w-2xl">
         <h1>Work formats and pricing</h1>
         <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
-          I work individually and in mini-groups, in Samara and online.
-          The format is selected based on your stage, how you feel, and your goals.
-          You can start with an intro session.
+          You can start with an intro session. It helps calmly assess your situation, goals, and limitations, and then choose the format that suits you best.
         </p>
       </div>
     </div>
@@ -42,11 +40,11 @@ const lang = 'en';
             </p>
             <ul class="space-y-2">
               {[
-                'Getting to know your situation',
-                'Assessment of your current condition',
-                'Discussion of goals and limitations',
-                'Recommendations on the right format',
-                'A clear understanding of how to move forward',
+                'Understanding your situation',
+                'Clarifying your stage and goals',
+                'Discussing limitations and how you feel',
+                'A first direction for further work',
+                'Choosing the right format',
               ].map(item => (
                 <li class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
@@ -69,7 +67,7 @@ const lang = 'en';
     <div class="container section">
       <h2 class="mb-3">Personal guidance 1:1</h2>
       <p class="text-[16px] leading-relaxed text-[var(--color-text-body)] mb-10 max-w-2xl">
-        Individual work tailored to your stage, condition, and goals — during pregnancy, postpartum, or after a C-section.
+        Individual work tailored to your stage, condition, and goals. Suitable during pregnancy, postpartum recovery, and a gentle return to movement.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
@@ -91,13 +89,12 @@ const lang = 'en';
   <section class="bg-[var(--color-bg-cream)]">
     <div class="container section">
       <div class="card p-8">
-        <h2 class="text-xl mb-3">Mini-groups</h2>
+        <h2 class="text-xl mb-3">Mini-group</h2>
         <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-3">
-          Small group sessions of up to 4 people. A good fit if you prefer working alongside others while still receiving individual attention.
+          A small group format for those who are already comfortable with a softer shared training rhythm after understanding their needs and goals.
         </p>
         <p class="text-[14px] text-[var(--color-text-body)]/60">
-          Pricing and availability are confirmed separately.
-          <a href="https://wa.me/79270101378" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline no-underline">Get in touch</a> to check the current schedule.
+          Pricing and availability are clarified separately.
         </p>
       </div>
     </div>
@@ -109,7 +106,7 @@ const lang = 'en';
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="mb-6">Online and in-person</h2>
         <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
-          All formats are available in person in Samara and online. The format is chosen based on your convenience. Online works well if you prefer working from home — the quality of guidance stays the same.
+          Sessions are available in Samara and online. The format is chosen based on your goals, condition, and convenience.
         </p>
       </div>
     </div>
@@ -143,9 +140,17 @@ const lang = 'en';
   <section class="bg-white">
     <div class="container section">
       <div class="max-w-xl mx-auto text-center">
+        <img
+          src="/images/pricing-cta.jpg"
+          alt="One-on-one trainer support for a pregnant client"
+          class="w-full max-w-md mx-auto rounded-2xl mb-8"
+          width="512"
+          height="512"
+          loading="lazy"
+        />
         <h2 class="mb-6">Start with an intro session</h2>
         <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
-          A calm first step: we will get to know each other, review your situation, and decide how to move forward.
+          In the first session, we will calmly review your situation and understand which format suits you best.
         </p>
         <BookingCta lang={lang} label="Book an intro session" />
         <div class="mt-4">
