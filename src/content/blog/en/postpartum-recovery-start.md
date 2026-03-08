@@ -34,4 +34,4 @@ Increasing load should be smooth and based on how you feel, not on a fixed sched
 
 I work with women after childbirth in Samara and online. We begin with a starter assessment: reviewing the current situation, how you feel, any limitations — and building a personal route with a gentle start.
 
-If you feel ready to begin but are not sure where to start, I invite you to book a starter assessment.
+If you feel ready to begin but are not sure where to start, feel free to get in touch — I will help you find the right format.

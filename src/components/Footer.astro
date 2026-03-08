@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../i18n/utils';
 import { t, getNavItems, PHONE, PHONE_TEL } from '../i18n/utils';
+import ContactIcons from './ContactIcons.astro';
 
 interface Props {
   lang: Lang;
@@ -12,24 +13,6 @@ const prefix = `/${lang}`;
 
 /* 6 footer nav links: Pregnancy, Pricing, About, Reviews, FAQ, Contact */
 const footerNav = [0, 2, 3, 5, 6, 8].map(i => navItems[i]);
-
-const socials = [
-  {
-    href: 'https://wa.me/79270101378',
-    label: 'WhatsApp',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>`,
-  },
-  {
-    href: 'https://t.me/Anastassia_Nikolskaya',
-    label: 'Telegram',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405 405 0 0 0-2.849 1.106c-.189.076-.254.123-.27.132.043.028.088.054.133.077a28 28 0 0 0 .768.376l2.713 1.075 1.155 3.75c.076.24.186.378.324.448.138.07.297.084.478.02l2.018-1.1 2.794 2.16c.476.352 1.01.378 1.408.032.399-.346.522-.885.418-1.48l-1.87-10.836a2.023 2.023 0 0 0-.937-1.407 2.242 2.242 0 0 0-.928-.308Z"/></svg>`,
-  },
-  {
-    href: 'https://instagram.com/nasstena163',
-    label: 'Instagram',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>`,
-  },
-];
 ---
 
 <footer class="bg-[var(--color-bg-cream)] border-t border-[var(--color-border)]">
@@ -51,7 +34,7 @@ const socials = [
         </a>
       </div>
 
-      <!-- Right: nav + socials -->
+      <!-- Right: nav + contact icons -->
       <div class="flex flex-col items-start md:items-end gap-4 md:gap-5">
         <nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer navigation">
           {footerNav.map(item => (
@@ -63,18 +46,7 @@ const socials = [
             </a>
           ))}
         </nav>
-        <div class="flex items-center gap-4">
-          {socials.map(social => (
-            <a
-              href={social.href}
-              target="_blank"
-              rel="noopener"
-              class="text-[var(--color-text-body)]/60 hover:text-[var(--color-primary-dark)] hover:bg-[var(--color-secondary)] rounded-lg transition-colors min-w-[44px] min-h-[44px] inline-flex items-center justify-center"
-              aria-label={social.label}
-              set:html={social.icon}
-            />
-          ))}
-        </div>
+        <ContactIcons lang={lang} />
       </div>
     </div>
 
