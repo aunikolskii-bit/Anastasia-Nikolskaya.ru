@@ -1,0 +1,31 @@
+---
+/**
+ * ExitFeedback — Astro wrapper for the exit-feedback Preact island.
+ * Resolves i18n strings at build time and passes them as serializable props.
+ */
+import type { Lang } from '../i18n/utils';
+import { t } from '../i18n/utils';
+import ExitFeedbackIsland from './ExitFeedbackIsland';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const answers = [
+  { id: 'booked',    label: t(lang, 'feedback.booked'),    goal: 'exit_feedback_booked' },
+  { id: 'exploring', label: t(lang, 'feedback.exploring'), goal: 'exit_feedback_exploring' },
+  { id: 'later',     label: t(lang, 'feedback.later'),     goal: 'exit_feedback_later' },
+  { id: 'unclear',   label: t(lang, 'feedback.unclear'),   goal: 'exit_feedback_questions' },
+];
+---
+
+<ExitFeedbackIsland
+  client:idle
+  lang={lang}
+  question={t(lang, 'feedback.question')}
+  answers={answers}
+  thanksText={t(lang, 'feedback.thanks')}
+  closeLabel={t(lang, 'feedback.close')}
+/>

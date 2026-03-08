@@ -31,6 +31,13 @@ export const ui = {
     '404.text': 'Возможно, страница была перемещена или удалена.',
     '404.home': 'На главную',
     '404.contact': 'Контакты',
+    'feedback.question': 'Удалось ли найти нужную информацию?',
+    'feedback.booked': 'Да, уже записалась',
+    'feedback.exploring': 'Пока изучаю',
+    'feedback.later': 'Вернусь позже',
+    'feedback.unclear': 'Остались вопросы',
+    'feedback.thanks': 'Спасибо за ответ!',
+    'feedback.close': 'Закрыть',
   },
   en: {
     'site.name': 'Anastasia Nikolskaya',
@@ -64,6 +71,13 @@ export const ui = {
     '404.text': 'This page may have been moved or removed.',
     '404.home': 'Go to homepage',
     '404.contact': 'Contact',
+    'feedback.question': 'Did you find the information you needed?',
+    'feedback.booked': 'Yes, already booked',
+    'feedback.exploring': 'Still exploring',
+    'feedback.later': 'Will come back later',
+    'feedback.unclear': 'Had some questions',
+    'feedback.thanks': 'Thank you!',
+    'feedback.close': 'Close',
   },
 } as const;
 
