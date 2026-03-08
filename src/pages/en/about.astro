@@ -16,43 +16,147 @@ const lang = 'en';
 >
   <Breadcrumb lang={lang} items={[{ label: 'About' }]} />
 
+  <!-- Section 1: Intro -->
   <section class="bg-white">
     <div class="container section">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         <div>
-          <p class="label-uppercase mb-4">About the Trainer</p>
+          <p class="label-uppercase mb-4">About</p>
           <h1>Anastasia Nikolskaya</h1>
-          <p class="text-lg leading-relaxed mt-6 mb-8">
-            A personal trainer with a narrow specialization in working with women during pregnancy and after childbirth. Based in Samara, available online.
+          <p class="text-lg leading-relaxed mt-6 mb-6 text-[var(--color-text-body)]">
+            A personal trainer focused on calm, careful work with women during pregnancy and after childbirth.
           </p>
-          <div class="space-y-6 text-[15px] leading-relaxed">
+          <div class="space-y-4 text-[15px] leading-relaxed text-[var(--color-text-body)]">
             <p>
-              My approach is not "fitness at any cost" but gentle support adapted to your current stage. Every plan is built individually: around your term, condition, restrictions, and goals.
+              My goal is not simply to add exercise, but to help you move calmly, safely, and with a clear understanding of what is right for your stage.
             </p>
             <p>
-              I work within the scope of a trainer — movement, fitness preparation, load adaptation. For medical questions, I always recommend consulting a physician.
-            </p>
-            <p>
-              What I want most for every client: for you to feel calm, safe, and clear about what comes next.
+              I work individually, taking your stage, how you feel, any limitations, and your goals into account — in Samara and online.
             </p>
           </div>
-
-          <div class="mt-10">
-            <BookingCta lang={lang} label="Book a starter assessment" />
-            <div class="mt-4">
-              <FallbackContact lang={lang} />
-            </div>
+          <div class="mt-8">
+            <BookingCta lang={lang} label="Book an intro session" />
           </div>
         </div>
         <div>
           <img
-            src="/images/about-method.jpg"
-            alt="Anastasia Nikolskaya correcting technique — individual approach to each client"
+            src="/images/about-portrait.jpg"
+            alt="Portrait of Anastasia Nikolskaya"
             class="rounded-sm w-full h-auto mt-4"
             loading="lazy"
-            width="1200"
-            height="900"
+            width="1024"
+            height="1536"
           />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: How I work -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="mb-10">How I work</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            title: 'Calm, not pressure',
+            text: 'It matters to me that the work feels clear, safe, and calm at every stage.',
+          },
+          {
+            title: 'Tailored to your condition',
+            text: 'The program is not taken from a generic template — it is built around your stage, condition, and goals.',
+          },
+          {
+            title: 'No rush for results',
+            text: 'The work develops gradually. What matters is not speed, but the right sustainable path.',
+          },
+          {
+            title: 'Within the trainer\'s scope',
+            text: 'If there are medical concerns or restrictions, I recommend discussing training with your doctor.',
+          },
+        ].map(card => (
+          <div class="card p-6">
+            <div class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <div>
+                <h3 class="text-[17px] font-semibold text-[var(--color-dark)] mb-2">{card.title}</h3>
+                <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: What I help with -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">What I help with</h2>
+        <ul class="space-y-4">
+          {[
+            'Staying active safely during pregnancy',
+            'Returning to movement gently after childbirth',
+            'Entering work carefully after a C-section',
+            'Feeling your body better and understanding appropriate load',
+            'Building a calm personal path instead of relying on random exercises',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Why women trust me -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="mb-10">Why women trust me</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        {[
+          'Certified trainer',
+          'Focus on work before and after childbirth',
+          'Individual adaptation instead of generic templates',
+          'Samara and online',
+          'A calm approach without pressure or overload',
+        ].map(point => (
+          <div class="card p-5 flex items-start gap-3">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span class="text-[15px] leading-relaxed text-[var(--color-dark)]">{point}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Education and certificates -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <p class="label-uppercase mb-4">Education and certificates</p>
+        <h2 class="mb-6">Verified qualifications</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          Here you can see the main education and continuing training documents that support my professional background.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Final CTA -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Start with a clear first step</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          In the intro session, we will calmly review your situation, stage, limitations, and goals, and decide which format suits you best.
+        </p>
+        <BookingCta lang={lang} label="Book an intro session" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
         </div>
       </div>
     </div>

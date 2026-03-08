@@ -16,43 +16,147 @@ const lang = 'ru';
 >
   <Breadcrumb lang={lang} items={[{ label: 'О тренере' }]} />
 
+  <!-- Section 1: Intro -->
   <section class="bg-white">
     <div class="container section">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         <div>
-          <p class="label-uppercase mb-4">О тренере</p>
+          <p class="label-uppercase mb-4">О специалисте</p>
           <h1>Анастасия Никольская</h1>
-          <p class="text-lg leading-relaxed mt-6 mb-8">
-            Персональный тренер с узкой специализацией на работе с женщинами во время беременности и после родов. Работаю в Самаре и онлайн.
+          <p class="text-lg leading-relaxed mt-6 mb-6 text-[var(--color-text-body)]">
+            Персональный тренер с&nbsp;фокусом на&nbsp;бережную работу с&nbsp;женщинами во&nbsp;время беременности и&nbsp;после родов.
           </p>
-          <div class="space-y-6 text-[15px] leading-relaxed">
+          <div class="space-y-4 text-[15px] leading-relaxed text-[var(--color-text-body)]">
             <p>
-              Мой подход — это не «фитнес любой ценой», а бережное сопровождение с учётом того, на каком этапе вы находитесь. Каждая программа строится индивидуально: под ваш срок, самочувствие, ограничения и цели.
+              Моя задача&nbsp;— не&nbsp;просто дать нагрузку, а&nbsp;помочь вам двигаться спокойно, безопасно и&nbsp;с&nbsp;пониманием того, что подходит именно вашему этапу.
             </p>
             <p>
-              Я работаю в рамках компетенции тренера — движение, физическая подготовка, адаптация нагрузки. Если у вас есть медицинские вопросы, я всегда рекомендую консультацию врача.
-            </p>
-            <p>
-              Главное, чего я хочу для каждой клиентки: чтобы вам было спокойно, безопасно и понятно, что делать дальше.
+              Я&nbsp;работаю индивидуально, с&nbsp;учётом срока, самочувствия, ограничений и&nbsp;ваших целей&nbsp;— в&nbsp;Самаре и&nbsp;онлайн.
             </p>
           </div>
-
-          <div class="mt-10">
+          <div class="mt-8">
             <BookingCta lang={lang} label="Записаться на стартовую встречу" />
-            <div class="mt-4">
-              <FallbackContact lang={lang} />
-            </div>
           </div>
         </div>
         <div>
           <img
-            src="/images/about-method.jpg"
-            alt="Анастасия Никольская корректирует технику — индивидуальный подход к каждой клиентке"
+            src="/images/about-portrait.jpg"
+            alt="Портрет Анастасии Никольской"
             class="rounded-sm w-full h-auto mt-4"
             loading="lazy"
-            width="1200"
-            height="900"
+            width="1024"
+            height="1536"
           />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: How I work -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="mb-10">Как я&nbsp;работаю</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            title: 'Спокойно, а не через давление',
+            text: 'Мне важно, чтобы вам было понятно, безопасно и спокойно на каждом этапе работы.',
+          },
+          {
+            title: 'С учётом вашего состояния',
+            text: 'Программа не берётся из общего шаблона — она строится под ваш срок, состояние и задачу.',
+          },
+          {
+            title: 'Без гонки за результатом',
+            text: 'Работа строится постепенно. Важен не темп, а правильный и устойчивый путь.',
+          },
+          {
+            title: 'В рамках компетенции тренера',
+            text: 'Если есть медицинские вопросы или ограничения, я рекомендую согласовать занятия с врачом.',
+          },
+        ].map(card => (
+          <div class="card p-6">
+            <div class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <div>
+                <h3 class="text-[17px] font-semibold text-[var(--color-dark)] mb-2">{card.title}</h3>
+                <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">{card.text}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: What I help with -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">С&nbsp;чем я&nbsp;помогаю</h2>
+        <ul class="space-y-4">
+          {[
+            'Безопасно двигаться во время беременности',
+            'Мягко возвращаться к активности после родов',
+            'Аккуратно входить в работу после кесарева',
+            'Лучше чувствовать тело и понимать допустимую нагрузку',
+            'Выстраивать спокойный и персональный маршрут вместо случайных упражнений',
+          ].map(item => (
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 mt-2.5 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+              <span class="text-[16px] leading-relaxed text-[var(--color-text-body)]">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Why women trust me -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <h2 class="mb-10">Почему мне доверяют</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        {[
+          'Дипломированный тренер',
+          'Специализация в работе до и после родов',
+          'Индивидуальная адаптация вместо шаблонов',
+          'Самара и онлайн',
+          'Спокойный подход без давления и перегруза',
+        ].map(point => (
+          <div class="card p-5 flex items-start gap-3">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span class="text-[15px] leading-relaxed text-[var(--color-dark)]">{point}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Education and certificates -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <p class="label-uppercase mb-4">Образование и&nbsp;сертификаты</p>
+        <h2 class="mb-6">Подтверждённая квалификация</h2>
+        <p class="text-[16px] leading-relaxed text-[var(--color-text-body)]">
+          Здесь собраны основные документы об&nbsp;образовании и&nbsp;дополнительном обучении, которые подтверждают мою профессиональную подготовку.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Final CTA -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="mb-6">Начните с&nbsp;понятного первого шага</h2>
+        <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
+          На&nbsp;стартовой встрече мы спокойно разберём вашу ситуацию, этап, ограничения и&nbsp;цели и&nbsp;поймём, какой формат подойдёт именно вам.
+        </p>
+        <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
         </div>
       </div>
     </div>
