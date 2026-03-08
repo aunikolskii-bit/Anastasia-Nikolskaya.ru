@@ -1,8 +1,8 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import SafetyProcess from '../../components/SafetyProcess.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'ru';
 ---
@@ -15,10 +15,159 @@ const lang = 'ru';
   alternatePath="/en/safety-approach/"
 >
   <Breadcrumb lang={lang} items={[{ label: 'Безопасность и подход' }]} />
-  <SafetyProcess lang={lang} asPage />
+
+  <!-- Section 1: Intro -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">Как я работаю</p>
+        <h1>Спокойный и безопасный подход на&nbsp;каждом этапе</h1>
+        <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
+          Работа строится не&nbsp;по&nbsp;шаблону, а&nbsp;с&nbsp;учётом вашего этапа, самочувствия, ограничений и&nbsp;целей.
+        </p>
+        <p class="text-[15px] leading-relaxed mt-4 text-[var(--color-text-body)]">
+          Во&nbsp;время беременности и&nbsp;после родов важна не&nbsp;&laquo;интенсивность&raquo;, а&nbsp;понятная, аккуратная и&nbsp;последовательная работа. Именно поэтому я&nbsp;выстраиваю сопровождение спокойно, без давления и&nbsp;без лишнего риска.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Four principles -->
   <section class="bg-[var(--color-bg-cream)]">
-    <div class="container py-12 text-center">
-      <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+    <div class="container section">
+      <h2 class="mb-10">На&nbsp;чём держится этот подход</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">С&nbsp;учётом вашего этапа</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                Программа строится под срок беременности или послеродовый период, ваше самочувствие и&nbsp;задачу.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">Безопасный вход в&nbsp;нагрузку</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                Без гонки, без давления и&nbsp;без лишнего риска. Важен не&nbsp;темп, а&nbsp;правильный путь.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">Персональный маршрут, а&nbsp;не&nbsp;шаблон</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                Каждая работа строится под вас, а&nbsp;не&nbsp;по&nbsp;общей схеме.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">В&nbsp;рамках компетенции тренера</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                При медицинских вопросах рекомендую консультацию врача.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: How the work is built -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">Как это выглядит на&nbsp;практике</h2>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Начинаем с&nbsp;понимания вашей ситуации и&nbsp;ограничений</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Выбираем спокойный старт без перегруза</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Постепенно добавляем работу по&nbsp;мере готовности тела</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Отслеживаем самочувствие и&nbsp;корректируем маршрут</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Сохраняем понятный темп без давления</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Who this approach is for -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">Кому это подходит</h2>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Если вы хотите двигаться безопасно во&nbsp;время беременности</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Если вам нужен понятный возврат к&nbsp;активности после родов</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Если вы не&nbsp;хотите давления, стыда и&nbsp;случайных упражнений</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>Если вам важен индивидуальный подход, а&nbsp;не&nbsp;общий фитнес-шаблон</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Professional boundaries -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-6">Что важно понимать</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+          Я&nbsp;работаю в&nbsp;рамках движения, физической подготовки и&nbsp;адаптации нагрузки. Если есть медицинские ограничения, боли, диагнозы или сомнения, занятия стоит согласовать с&nbsp;врачом.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Final CTA -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section text-center">
+      <div class="max-w-xl mx-auto">
+        <h2 class="mb-4">Начните со&nbsp;спокойного первого шага</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-8">
+          На&nbsp;стартовой встрече мы&nbsp;разберём вашу ситуацию и&nbsp;поймём, какой формат работы подойдёт именно вам.
+        </p>
+        <BookingCta lang={lang} label="Записаться на стартовую встречу" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
     </div>
   </section>
 </PageLayout>

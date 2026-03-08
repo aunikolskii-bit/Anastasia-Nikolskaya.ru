@@ -1,8 +1,8 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import SafetyProcess from '../../components/SafetyProcess.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'en';
 ---
@@ -15,10 +15,159 @@ const lang = 'en';
   alternatePath="/ru/bezopasnost-i-podhod/"
 >
   <Breadcrumb lang={lang} items={[{ label: 'Safety & Approach' }]} />
-  <SafetyProcess lang={lang} asPage />
+
+  <!-- Section 1: Intro -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-3xl">
+        <p class="label-uppercase mb-4">How I work</p>
+        <h1>A calm and safe approach at every stage</h1>
+        <p class="text-lg leading-relaxed mt-6 text-[var(--color-text-body)]">
+          The work is not built from a template, but around your stage, how you feel, your limitations, and your goals.
+        </p>
+        <p class="text-[15px] leading-relaxed mt-4 text-[var(--color-text-body)]">
+          During pregnancy and after childbirth, what matters is not "intensity" but clear, careful, and steady work. That is why I build the process calmly, without pressure and without unnecessary risk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Four principles -->
   <section class="bg-[var(--color-bg-cream)]">
-    <div class="container py-12 text-center">
-      <BookingCta lang={lang} label="Book a starter assessment" />
+    <div class="container section">
+      <h2 class="mb-10">What this approach is built on</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">Tailored to your stage</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                Each plan is built around your pregnancy stage or postpartum period, how you feel, and what you need.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">A safe return to movement</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                No rush, no pressure, and no unnecessary risk. What matters is not speed, but the right path.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">A personal plan, not a template</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                Every program is shaped around you, not a generic formula.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6">
+          <div class="flex gap-3 items-start">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <div>
+              <h3 class="text-lg mb-2">Within the trainer's scope</h3>
+              <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+                If there are medical concerns, I recommend consulting a doctor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: How the work is built -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">What this looks like in practice</h2>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>We begin by understanding your situation and limitations</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>We choose a calm starting point without overload</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>We add work gradually as your body is ready</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>We track how you feel and adjust the path</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>We keep the pace clear and pressure-free</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Who this approach is for -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-8">Who this is for</h2>
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>If you want to move safely during pregnancy</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>If you need a clear return to movement after childbirth</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>If you do not want pressure, shame, or random exercises</span>
+          </li>
+          <li class="flex gap-3 items-start text-[15px] leading-relaxed text-[var(--color-text-body)]">
+            <span class="w-1.5 h-1.5 mt-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
+            <span>If you value individual guidance rather than a generic fitness template</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Professional boundaries -->
+  <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl">
+        <h2 class="mb-6">What matters to understand</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)]">
+          I work within movement, physical preparation, and load adaptation. If there are medical restrictions, pain, diagnoses, or doubts, training should be discussed with a doctor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Final CTA -->
+  <section class="bg-[var(--color-bg-cream)]">
+    <div class="container section text-center">
+      <div class="max-w-xl mx-auto">
+        <h2 class="mb-4">Start with a calm first step</h2>
+        <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] mb-8">
+          In the intro session, we will review your situation and understand which format of work suits you best.
+        </p>
+        <BookingCta lang={lang} label="Book an intro session" />
+        <div class="mt-4">
+          <FallbackContact lang={lang} />
+        </div>
+      </div>
     </div>
   </section>
 </PageLayout>
