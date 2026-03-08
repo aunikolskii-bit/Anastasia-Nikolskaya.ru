@@ -33,6 +33,6 @@ A qualified specialist knows the difference between normal training discomfort a
 
 ## What Anastasia Nikolskaya offers
 
-In my work with pregnant clients, I use a personal approach: a starter assessment, intake form, movement check, and only then — a program adapted to your stage. Sessions are available in Samara and online.
+In my work with pregnant clients, I use a personal approach: an intro session, intake form, movement check, and only then — a program adapted to your stage. Sessions are available in Samara and online.
 
 If you are looking for a safe and calm format of support during pregnancy, feel free to get in touch — I will help you find the right starting point.

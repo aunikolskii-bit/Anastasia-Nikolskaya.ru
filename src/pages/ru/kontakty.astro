@@ -1,7 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import BookingCta from '../../components/BookingCta.astro';
 import DirectContact from '../../components/DirectContact.astro';
 
 const lang = 'ru';
@@ -22,17 +21,19 @@ const lang = 'ru';
         <div>
           <p class="label-uppercase mb-6">Контакты</p>
           <h1 class="mb-6">Свяжитесь со мной</h1>
-          <p class="text-lg leading-relaxed max-w-md mb-10">
-            Выберите удобный способ связи — отвечу и помогу определиться с форматом.
+          <p class="text-lg leading-relaxed max-w-md mb-6">
+            Напишите удобным способом — помогу выбрать следующий шаг.
           </p>
-          <BookingCta lang={lang} label="Записаться на встречу" />
+          <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] max-w-md">
+            После обращения станет понятнее, какой формат подойдёт именно вам.
+          </p>
         </div>
         <div>
-          <p class="label-uppercase !text-[12px] mb-6">Связаться напрямую</p>
+          <p class="label-uppercase !text-[12px] mb-6">Способы связи</p>
           <DirectContact lang={lang} />
           <div class="mt-10 pt-8 border-t border-[var(--color-border)]">
             <p class="label-uppercase !text-[12px] mb-2">Расположение</p>
-            <p class="text-lg font-semibold text-[var(--color-dark)]">Самара + онлайн</p>
+            <p class="text-[15px] font-medium text-[var(--color-dark)]">Самара + онлайн</p>
           </div>
         </div>
       </div>

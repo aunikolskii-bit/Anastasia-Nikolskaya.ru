@@ -55,7 +55,7 @@ const lang = 'en';
           </div>
           <div class="md:text-right">
             <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-3xl md:text-4xl mb-4">from 3,500 RUB</p>
-            <BookingCta lang={lang} label="Book a starter assessment" />
+            <BookingCta lang={lang} label="Book an intro session" />
           </div>
         </div>
       </div>
@@ -136,8 +136,20 @@ const lang = 'en';
     </div>
   </section>
 
-  <!-- Section 7: Final CTA -->
+  <!-- Section 7: Helpful reading -->
   <section class="bg-white">
+    <div class="container section">
+      <div class="max-w-2xl mx-auto text-center">
+        <h3 class="text-lg font-semibold mb-4">Helpful reading</h3>
+        <ul class="space-y-2">
+          <li><a href="/en/blog/what-is-the-intro-session/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">What is the intro session and who is it for</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Final CTA -->
+  <section class="bg-[var(--color-bg-cream)]">
     <div class="container section">
       <div class="max-w-xl mx-auto text-center">
         <img
@@ -152,7 +164,7 @@ const lang = 'en';
         <p class="text-lg leading-relaxed mb-8 text-[var(--color-text-body)]">
           In the first session, we will calmly review your situation and understand which format suits you best.
         </p>
-        <BookingCta lang={lang} label="Book a starter assessment" />
+        <BookingCta lang={lang} label="Book an intro session" />
         <div class="mt-4">
           <FallbackContact lang={lang} />
         </div>

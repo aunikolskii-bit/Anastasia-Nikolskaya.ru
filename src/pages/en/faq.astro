@@ -25,6 +25,16 @@ const structuredData = {
       name: 'Can I train online?',
       acceptedAnswer: { '@type': 'Answer', text: 'Yes. Online work can be a standalone format or a support layer between sessions.' },
     },
+    {
+      '@type': 'Question',
+      name: 'How often should I train?',
+      acceptedAnswer: { '@type': 'Answer', text: 'It depends on your stage, goals, and current load. A realistic rhythm is chosen during the intro session.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What if I feel anxious or unsure whether I should start?',
+      acceptedAnswer: { '@type': 'Answer', text: 'That is exactly what the intro session is for: to calmly understand what is safe and appropriate for you now.' },
+    },
   ],
 };
 ---
@@ -41,7 +51,7 @@ const structuredData = {
   <FaqSection lang={lang} asPage />
   <section class="bg-[var(--color-bg-cream)]">
     <div class="container py-12 text-center">
-      <BookingCta lang={lang} label="Book a starter assessment" />
+      <BookingCta lang={lang} label="Book an intro session" />
     </div>
   </section>
 </PageLayout>

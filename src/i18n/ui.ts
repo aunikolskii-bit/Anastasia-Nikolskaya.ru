@@ -54,7 +54,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
     'cta.book': 'Book now',
-    'cta.book.starter': 'Book a starter assessment',
+    'cta.book.starter': 'Book an intro session',
     'cta.choose.format': 'Choose your format',
     'cta.learn.more': 'Learn more',
     'cta.fallback': 'Prefer to contact directly?',

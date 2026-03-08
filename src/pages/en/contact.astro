@@ -1,7 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import BookingCta from '../../components/BookingCta.astro';
 import DirectContact from '../../components/DirectContact.astro';
 
 const lang = 'en';
@@ -22,17 +21,19 @@ const lang = 'en';
         <div>
           <p class="label-uppercase mb-6">Contact</p>
           <h1 class="mb-6">Get in touch</h1>
-          <p class="text-lg leading-relaxed max-w-md mb-10">
-            Choose how to reach out — I will reply and help you find the right format.
+          <p class="text-lg leading-relaxed max-w-md mb-6">
+            Reach out in whichever way is easiest — I will help you find the right next step.
           </p>
-          <BookingCta lang={lang} label="Book a session" />
+          <p class="text-[15px] leading-relaxed text-[var(--color-text-body)] max-w-md">
+            After reaching out, we can figure out which format suits your situation best.
+          </p>
         </div>
         <div>
-          <p class="label-uppercase !text-[12px] mb-6">Contact directly</p>
+          <p class="label-uppercase !text-[12px] mb-6">How to reach me</p>
           <DirectContact lang={lang} />
           <div class="mt-10 pt-8 border-t border-[var(--color-border)]">
             <p class="label-uppercase !text-[12px] mb-2">Location</p>
-            <p class="text-lg font-semibold text-[var(--color-dark)]">Samara + online</p>
+            <p class="text-[15px] font-medium text-[var(--color-dark)]">Samara + online</p>
           </div>
         </div>
       </div>
