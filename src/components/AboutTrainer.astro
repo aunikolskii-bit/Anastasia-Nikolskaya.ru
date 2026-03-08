@@ -16,7 +16,7 @@ const content = {
   ru: {
     label: 'О специалисте',
     title: 'Специалист, которому можно доверять',
-    paragraph: 'Меня зовут Анастасия Никольская. Я\u00A0дипломированный тренер и\u00A0работаю с\u00A0женщинами во\u00A0время беременности и\u00A0после родов. Моя задача\u00A0— помочь вам двигаться спокойно, безопасно и\u00A0с\u00A0пониманием того, что подходит именно вашему этапу.',
+    paragraph: 'Меня зовут Анастасия Никольская. Я\u00A0дипломированный тренер и\u00A0работаю с\u00A0женщинами во\u00A0время беременности и\u00A0после родов. Помогаю двигаться спокойно, безопасно и\u00A0с\u00A0пониманием своего этапа.',
     trust: [
       'Дипломированный тренер',
       'До и после родов',
@@ -31,7 +31,7 @@ const content = {
   en: {
     label: 'About',
     title: 'A specialist you can trust',
-    paragraph: 'My name is Anastasia Nikolskaya. I am a certified trainer working with women during pregnancy and after childbirth. My goal is to help you move calmly, safely, and with a clear understanding of what is right for your stage.',
+    paragraph: 'My name is Anastasia Nikolskaya. I am a certified trainer working with women during pregnancy and after childbirth. I help you move calmly, safely, and with a clear understanding of your stage.',
     trust: [
       'Certified trainer',
       'Prenatal & postpartum',
@@ -58,14 +58,14 @@ const c = content[lang];
   <div class="container section">
     <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
       <!-- Text column -->
-      <div class="flex-1 lg:max-w-[55%] lg:py-8">
-        <p class="label-uppercase mb-4">{c.label}</p>
-        <h2 class="mb-8">{c.title}</h2>
-        <p class="text-lg leading-relaxed text-[var(--color-text-body)] mb-8">
+      <div class="flex-1 lg:max-w-[55%] lg:pt-2">
+        <p class="label-uppercase mb-3">{c.label}</p>
+        <h2 class="mb-4">{c.title}</h2>
+        <p class="text-lg leading-relaxed text-[var(--color-text-body)] mb-4">
           {c.paragraph}
         </p>
         <!-- Trust points — quiet 2×2 grid -->
-        <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+        <div class="grid grid-cols-2 gap-x-8 gap-y-2">
           {c.trust.map(item => (
             <div class="flex items-center gap-2.5">
               <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" aria-hidden="true"></span>
@@ -74,11 +74,11 @@ const c = content[lang];
           ))}
         </div>
         <!-- Credentials preview -->
-        <div class="mt-10">
-          <p class="label-uppercase mb-4">{c.credLabel}</p>
-          <div class="grid grid-cols-3 gap-3">
+        <div class="mt-6">
+          <p class="label-uppercase mb-2">{c.credLabel}</p>
+          <div class="grid grid-cols-3 gap-2.5">
             {credentials.map(cred => (
-              <div class="bg-white border border-[var(--color-border)] rounded-lg p-2 flex items-center justify-center aspect-[3/4]">
+              <div class="bg-white border border-[var(--color-border)] rounded-lg p-2 flex items-center justify-center aspect-[5/6]">
                 <img
                   src={cred.src}
                   alt=""
@@ -90,7 +90,7 @@ const c = content[lang];
               </div>
             ))}
           </div>
-          <div class="mt-5">
+          <div class="mt-3">
             <a href={c.credHref} class="btn btn-secondary">{c.credBtn}</a>
           </div>
         </div>
