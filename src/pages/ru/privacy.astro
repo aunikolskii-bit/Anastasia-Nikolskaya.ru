@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import { YCLIENTS_URL } from '../../i18n/utils';
 
 const lang = 'ru';
 ---
@@ -37,7 +38,7 @@ const lang = 'ru';
             </p>
             <p class="mt-3">
               Запись на занятия осуществляется через внешний сервис
-              <a href="https://yclients.com/timetable/1767873/" target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline">YCLIENTS</a>.
+              <a href={YCLIENTS_URL} target="_blank" rel="noopener" class="text-[var(--color-primary-dark)] hover:underline">YCLIENTS</a>.
               Персональные данные (имя, телефон) вводятся и обрабатываются непосредственно в YCLIENTS, а не на данном сайте.
               Обработка данных в YCLIENTS регулируется их собственной политикой конфиденциальности.
             </p>

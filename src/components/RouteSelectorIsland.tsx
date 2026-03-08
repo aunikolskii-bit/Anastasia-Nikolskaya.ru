@@ -9,9 +9,8 @@ interface Card {
 interface Props {
   lang: 'ru' | 'en';
   cards: Card[];
+  bookingUrl: string;
 }
-
-const YCLIENTS_URL = 'https://yclients.com/timetable/1767873/';
 
 const ctaLabels = {
   ru: {
@@ -26,7 +25,7 @@ const ctaLabels = {
   },
 };
 
-export default function RouteSelectorIsland({ lang, cards }: Props) {
+export default function RouteSelectorIsland({ lang, cards, bookingUrl }: Props) {
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
@@ -55,7 +54,7 @@ export default function RouteSelectorIsland({ lang, cards }: Props) {
       {selected && (
         <div class="mt-8 text-center animate-fadeIn">
           <a
-            href={YCLIENTS_URL}
+            href={bookingUrl}
             target="_blank"
             rel="noopener"
             class="btn btn-primary inline-block"

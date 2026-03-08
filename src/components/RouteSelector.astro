@@ -3,7 +3,7 @@
  * RouteSelector — static shell with 3 path cards.
  * Interactive version (RouteSelectorIsland) handles the CTA logic.
  */
-import type { Lang } from '../i18n/utils';
+import { YCLIENTS_URL, type Lang } from '../i18n/utils';
 import RouteSelectorIsland from './RouteSelectorIsland';
 
 interface Props {
@@ -64,6 +64,6 @@ const c = content[lang];
   <div class="container section w-full">
     <p class="label-uppercase mb-6">{c.label}</p>
     <h2 class="mb-12">{c.title}</h2>
-    <RouteSelectorIsland client:visible lang={lang} cards={c.cards} />
+    <RouteSelectorIsland client:visible lang={lang} cards={c.cards} bookingUrl={YCLIENTS_URL} />
   </div>
 </section>

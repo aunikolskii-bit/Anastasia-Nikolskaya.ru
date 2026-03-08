@@ -78,8 +78,8 @@ export function getNavItems(lang: Lang) {
   ];
 }
 
-/** YCLIENTS booking URL */
-export const YCLIENTS_URL = 'https://yclients.com/timetable/1767873/';
+/** YCLIENTS public booking URL */
+export const YCLIENTS_URL = 'https://n2013087.yclients.com';
 
 /** Phone number */
 export const PHONE = '+7 927 01 01 378';
