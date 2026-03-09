@@ -2,8 +2,31 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Восстановление после родов',
+  description: 'Мягкое послеродовое восстановление в Самаре и онлайн. Безопасный возврат к нагрузке после родов и кесарева сечения.',
+  provider: {
+    '@type': 'Person',
+    name: 'Анастасия Никольская',
+    url: `${SITE_URL}/ru/o-trenere/`,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Самара' },
+  ],
+  serviceType: 'Послеродовое восстановление',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceLocation: { '@type': 'Place', name: 'Самара' },
+    availableLanguage: ['ru', 'en'],
+  },
+  url: `${SITE_URL}/ru/posle-rodov/`,
+};
 ---
 
 <PageLayout
@@ -12,6 +35,7 @@ const lang = 'ru';
   description="Мягкое послеродовое восстановление в Самаре и онлайн. Безопасный возврат к нагрузке после родов и кесарева сечения."
   canonicalPath="/ru/posle-rodov/"
   alternatePath="/en/after-childbirth/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'После родов' }]} />
 
@@ -49,6 +73,10 @@ const lang = 'ru';
         </div>
       </div>
 
+      <p class="text-center mt-8 mb-10 text-[15px] text-[var(--color-text-body)]">
+        Подробнее о форматах и стоимости — на странице <a href="/ru/formaty-i-ceny/" class="text-[var(--color-primary-dark)] hover:underline">«Форматы и цены»</a>.
+      </p>
+
       <p class="text-[13px] text-[#707070] italic mb-8 max-w-2xl mx-auto text-center">
         При наличии медицинских противопоказаний рекомендуется консультация врача.
       </p>
@@ -56,6 +84,7 @@ const lang = 'ru';
       <div class="max-w-2xl mx-auto mb-12">
         <h3 class="text-lg font-semibold mb-4 text-center">Полезные материалы</h3>
         <ul class="space-y-2 text-center">
+          <li><a href="/ru/blog/vosstanovlenie-posle-rodov/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Восстановление после родов: с чего начать мягко</a></li>
           <li><a href="/ru/blog/trenirovki-posle-kesareva/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Возвращение к движению после кесарева</a></li>
           <li><a href="/ru/blog/kogda-nachinat-trenirovki-posle-rodov/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Когда можно начинать возвращаться к активности после родов</a></li>
         </ul>

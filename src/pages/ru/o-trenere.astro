@@ -2,8 +2,57 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Анастасия Никольская',
+  jobTitle: 'Персональный тренер',
+  description: 'Персональный тренер для женщин во время беременности и после родов в Самаре. Узкая специализация, безопасный подход.',
+  url: `${SITE_URL}/ru/o-trenere/`,
+  image: `${SITE_URL}/images/about-portrait.jpg`,
+  knowsAbout: [
+    'Тренировки во время беременности',
+    'Восстановление после родов',
+    'Восстановление после кесарева сечения',
+  ],
+  areaServed: [
+    { '@type': 'City', name: 'Самара' },
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Диплом о профессиональной переподготовке — Персональный тренер по фитнесу',
+      credentialCategory: 'diploma',
+      recognizedBy: { '@type': 'Organization', name: 'Академия Федерации бодибилдинга России' },
+      dateCreated: '2024-06-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'International Certification — Personal Fitness Trainer',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'IFBB Academy' },
+      dateCreated: '2024-06-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Фитнес для беременных',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'InstructorPRO' },
+      dateCreated: '2025-10-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Функциональный тренинг: матрицы',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'FitnessStar' },
+      dateCreated: '2025-11-08',
+    },
+  ],
+};
 ---
 
 <PageLayout
@@ -12,6 +61,7 @@ const lang = 'ru';
   description="Анастасия Никольская — персональный тренер для женщин во время беременности и после родов в Самаре. Узкая специализация, безопасный подход."
   canonicalPath="/ru/o-trenere/"
   alternatePath="/en/about/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'О тренере' }]} />
 

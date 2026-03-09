@@ -3,9 +3,31 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
 import ContactIcons from '../../components/ContactIcons.astro';
-import { t } from '../../i18n/utils';
+import { t, SITE_URL } from '../../i18n/utils';
 
 const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Pregnancy Training',
+  description: 'Safe personal training for pregnant women in Samara and online. Individually adapted to your stage, condition, and restrictions.',
+  provider: {
+    '@type': 'Person',
+    name: 'Anastasia Nikolskaya',
+    url: `${SITE_URL}/en/about/`,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Samara' },
+  ],
+  serviceType: 'Personal Training for Pregnant Women',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceLocation: { '@type': 'Place', name: 'Samara' },
+    availableLanguage: ['ru', 'en'],
+  },
+  url: `${SITE_URL}/en/during-pregnancy/`,
+};
 ---
 
 <PageLayout
@@ -14,6 +36,7 @@ const lang = 'en';
   description="Safe personal training for pregnant women in Samara and online. Individually adapted to your stage, condition, and restrictions."
   canonicalPath="/en/during-pregnancy/"
   alternatePath="/ru/beremennost/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'During Pregnancy' }]} />
 
@@ -145,6 +168,9 @@ const lang = 'en';
           </div>
         ))}
       </div>
+      <p class="text-center mt-8 text-[15px] text-[var(--color-text-body)]">
+        More about formats and pricing on the <a href="/en/formats-pricing/" class="text-[var(--color-primary-dark)] hover:underline">Formats & Pricing</a> page.
+      </p>
     </div>
   </section>
 
@@ -155,6 +181,7 @@ const lang = 'en';
         <h3 class="text-lg font-semibold mb-4">Helpful reading</h3>
         <ul class="space-y-2">
           <li><a href="/en/blog/movement-during-pregnancy-what-is-usually-appropriate/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Movement during pregnancy: what is usually appropriate</a></li>
+          <li><a href="/en/blog/safe-pregnancy-training/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">How to choose a safe pregnancy training format</a></li>
         </ul>
       </div>
     </div>

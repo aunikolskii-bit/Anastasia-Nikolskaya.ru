@@ -2,8 +2,31 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Postpartum Recovery',
+  description: 'Gentle postpartum recovery in Samara and online. Safe return to activity after childbirth and C-section.',
+  provider: {
+    '@type': 'Person',
+    name: 'Anastasia Nikolskaya',
+    url: `${SITE_URL}/en/about/`,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Samara' },
+  ],
+  serviceType: 'Postpartum Recovery Training',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceLocation: { '@type': 'Place', name: 'Samara' },
+    availableLanguage: ['ru', 'en'],
+  },
+  url: `${SITE_URL}/en/after-childbirth/`,
+};
 ---
 
 <PageLayout
@@ -12,6 +35,7 @@ const lang = 'en';
   description="Gentle postpartum recovery in Samara and online. Safe return to activity after childbirth and C-section."
   canonicalPath="/en/after-childbirth/"
   alternatePath="/ru/posle-rodov/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'After Childbirth' }]} />
 
@@ -47,6 +71,10 @@ const lang = 'en';
         </div>
       </div>
 
+      <p class="text-center mt-8 mb-10 text-[15px] text-[var(--color-text-body)]">
+        More about formats and pricing on the <a href="/en/formats-pricing/" class="text-[var(--color-primary-dark)] hover:underline">Formats & Pricing</a> page.
+      </p>
+
       <p class="text-[13px] text-[#707070] italic mb-8 max-w-2xl mx-auto text-center">
         If you have medical concerns, please consult your physician.
       </p>
@@ -54,6 +82,7 @@ const lang = 'en';
       <div class="max-w-2xl mx-auto mb-12">
         <h3 class="text-lg font-semibold mb-4 text-center">Helpful reading</h3>
         <ul class="space-y-2 text-center">
+          <li><a href="/en/blog/postpartum-recovery-start/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Postpartum recovery: how to start gently</a></li>
           <li><a href="/en/blog/returning-to-movement-after-c-section/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Returning to movement after a C-section</a></li>
           <li><a href="/en/blog/when-to-start-returning-to-activity-after-childbirth/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">When to start returning to activity after childbirth</a></li>
         </ul>

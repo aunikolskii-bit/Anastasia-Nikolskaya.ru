@@ -13,10 +13,12 @@ interface Props {
   canonicalPath: string;
   alternatePath: string;
   ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
   structuredData?: Record<string, unknown>;
 }
 
-const { lang, title, description, canonicalPath, alternatePath, ogImage, structuredData } = Astro.props;
+const { lang, title, description, canonicalPath, alternatePath, ogImage, ogType, noindex, structuredData } = Astro.props;
 ---
 
 <!doctype html>
@@ -45,11 +47,10 @@ const { lang, title, description, canonicalPath, alternatePath, ogImage, structu
       canonicalPath={canonicalPath}
       alternatePath={alternatePath}
       ogImage={ogImage}
+      ogType={ogType}
+      noindex={noindex}
       structuredData={structuredData}
     />
-
-    <!-- RSS autodiscovery -->
-    <link rel="alternate" type="application/rss+xml" title="Blog — Anastasia Nikolskaya" href="/rss.xml" />
   </head>
   <body>
     <slot />

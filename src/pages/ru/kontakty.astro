@@ -2,8 +2,28 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DirectContact from '../../components/DirectContact.astro';
+import { SITE_URL, PHONE_TEL } from '../../i18n/utils';
 
 const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Анастасия Никольская — персональные тренировки',
+  description: 'Персональные тренировки для женщин во время беременности и после родов в Самаре и онлайн.',
+  url: SITE_URL,
+  telephone: PHONE_TEL.replace('tel:', ''),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Самара',
+    addressCountry: 'RU',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Самара' },
+  ],
+  availableLanguage: ['ru', 'en'],
+  priceRange: 'от 3 500 ₽',
+};
 ---
 
 <PageLayout
@@ -12,6 +32,7 @@ const lang = 'ru';
   description="Свяжитесь с Анастасией Никольской для записи на тренировки во время беременности и после родов в Самаре."
   canonicalPath="/ru/kontakty/"
   alternatePath="/en/contact/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'Контакты' }]} />
 

@@ -2,8 +2,85 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'С чего лучше начать?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Со стартовой встречи. Это спокойный первый шаг, на котором мы разберём вашу ситуацию и подберём формат.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Нужна ли стартовая встреча перед курсом?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Рекомендую — она помогает мне понять ваш этап и задачу, а вам — почувствовать формат работы.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Можно ли заниматься онлайн?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Да. Все форматы доступны онлайн без потери в качестве работы.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Подходит ли формат после кесарева?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Да, программа адаптируется под ваш этап восстановления и самочувствие.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Как понять, какой формат мне нужен?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Именно для этого есть стартовая встреча — она поможет определиться.' },
+        },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Персональные тренировки — Анастасия Никольская',
+      description: 'Персональные тренировки, послеродовое восстановление, мини-группы и онлайн-поддержка.',
+      provider: {
+        '@type': 'Person',
+        name: 'Анастасия Никольская',
+        url: `${SITE_URL}/ru/o-trenere/`,
+      },
+      url: `${SITE_URL}/ru/formaty-i-ceny/`,
+      areaServed: [
+        { '@type': 'City', name: 'Самара' },
+      ],
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Стартовая встреча',
+          price: '3500',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Персональное сопровождение — 4 занятия',
+          price: '16000',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Персональное сопровождение — 8 занятий',
+          price: '30000',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Персональное сопровождение — 12 занятий',
+          price: '44000',
+          priceCurrency: 'RUB',
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <PageLayout
@@ -12,6 +89,7 @@ const lang = 'ru';
   description="Персональные тренировки, послеродовое восстановление, мини-группы и онлайн-поддержка. Стоимость от 3 500 ₽ за стартовую встречу."
   canonicalPath="/ru/formaty-i-ceny/"
   alternatePath="/en/formats-pricing/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'Форматы и цены' }]} />
 

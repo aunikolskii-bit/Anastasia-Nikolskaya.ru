@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../i18n/utils';
-import { t } from '../i18n/utils';
+import { t, SITE_URL } from '../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -10,6 +10,26 @@ interface Props {
 const { lang, items } = Astro.props;
 const homeLabel = t(lang, 'nav.home');
 const homeHref = `/${lang}/`;
+
+/* BreadcrumbList JSON-LD */
+const breadcrumbItems = [
+  { name: homeLabel, url: `${SITE_URL}${homeHref}` },
+  ...items.map(item => ({
+    name: item.label,
+    ...(item.href ? { url: `${SITE_URL}${item.href}` } : {}),
+  })),
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    ...(item.url ? { item: item.url } : {}),
+  })),
+};
 ---
 
 <nav aria-label="Breadcrumb" class="container py-1.5">
@@ -29,3 +49,5 @@ const homeHref = `/${lang}/`;
     ))}
   </ol>
 </nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

@@ -2,8 +2,57 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Anastasia Nikolskaya',
+  jobTitle: 'Personal Trainer',
+  description: 'Personal trainer for women during pregnancy and after childbirth in Samara. Narrow specialization, safe approach.',
+  url: `${SITE_URL}/en/about/`,
+  image: `${SITE_URL}/images/about-portrait.jpg`,
+  knowsAbout: [
+    'Pregnancy fitness training',
+    'Postpartum recovery',
+    'Post-C-section recovery',
+  ],
+  areaServed: [
+    { '@type': 'City', name: 'Samara' },
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Professional Retraining Diploma — Personal Fitness Trainer',
+      credentialCategory: 'diploma',
+      recognizedBy: { '@type': 'Organization', name: 'Academy of the Russian Bodybuilding Federation' },
+      dateCreated: '2024-06-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'International Certification — Personal Fitness Trainer',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'IFBB Academy' },
+      dateCreated: '2024-06-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Fitness for Pregnant Women',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'InstructorPRO' },
+      dateCreated: '2025-10-30',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Functional Training: Matrices',
+      credentialCategory: 'certificate',
+      recognizedBy: { '@type': 'Organization', name: 'FitnessStar' },
+      dateCreated: '2025-11-08',
+    },
+  ],
+};
 ---
 
 <PageLayout
@@ -12,6 +61,7 @@ const lang = 'en';
   description="Anastasia Nikolskaya — personal trainer for women during pregnancy and after childbirth in Samara. Narrow specialization, safe approach."
   canonicalPath="/en/about/"
   alternatePath="/ru/o-trenere/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'About' }]} />
 

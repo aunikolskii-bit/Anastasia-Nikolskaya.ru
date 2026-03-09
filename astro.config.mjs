@@ -16,6 +16,8 @@ export default defineConfig({
   integrations: [
     preact(),
     sitemap({
+      filter: (page) =>
+        !page.includes('/privacy/') && !page.includes('/consent/'),
       i18n: {
         defaultLocale: 'ru',
         locales: {

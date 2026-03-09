@@ -3,9 +3,31 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
 import ContactIcons from '../../components/ContactIcons.astro';
-import { t } from '../../i18n/utils';
+import { t, SITE_URL } from '../../i18n/utils';
 
 const lang = 'ru';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Тренировки во время беременности',
+  description: 'Безопасные персональные тренировки для беременных в Самаре и онлайн. Индивидуальный подход с учётом срока, самочувствия и ограничений.',
+  provider: {
+    '@type': 'Person',
+    name: 'Анастасия Никольская',
+    url: `${SITE_URL}/ru/o-trenere/`,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Самара' },
+  ],
+  serviceType: 'Персональные тренировки для беременных',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceLocation: { '@type': 'Place', name: 'Самара' },
+    availableLanguage: ['ru', 'en'],
+  },
+  url: `${SITE_URL}/ru/beremennost/`,
+};
 ---
 
 <PageLayout
@@ -14,6 +36,7 @@ const lang = 'ru';
   description="Безопасные персональные тренировки для беременных в Самаре и онлайн. Индивидуальный подход с учётом срока, самочувствия и ограничений."
   canonicalPath="/ru/beremennost/"
   alternatePath="/en/during-pregnancy/"
+  structuredData={structuredData}
 >
   <Breadcrumb lang={lang} items={[{ label: 'Во время беременности' }]} />
 
@@ -145,6 +168,9 @@ const lang = 'ru';
           </div>
         ))}
       </div>
+      <p class="text-center mt-8 text-[15px] text-[var(--color-text-body)]">
+        Подробнее о форматах и стоимости — на странице <a href="/ru/formaty-i-ceny/" class="text-[var(--color-primary-dark)] hover:underline">«Форматы и цены»</a>.
+      </p>
     </div>
   </section>
 
@@ -155,6 +181,7 @@ const lang = 'ru';
         <h3 class="text-lg font-semibold mb-4">Полезные материалы</h3>
         <ul class="space-y-2">
           <li><a href="/ru/blog/sport-vo-vremya-beremennosti-chto-mozhno/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Движение во время беременности: что уместно, а что лучше не форсировать</a></li>
+          <li><a href="/ru/blog/trenirovki-dlya-beremennyh/" class="text-[15px] text-[var(--color-primary-dark)] hover:underline">Как выбрать безопасный формат тренировок во время беременности</a></li>
         </ul>
       </div>
     </div>

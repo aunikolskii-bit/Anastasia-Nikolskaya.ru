@@ -2,12 +2,90 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
+import { SITE_URL } from '../../i18n/utils';
 
 const lang = 'en';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Where should I start?',
+          acceptedAnswer: { '@type': 'Answer', text: 'With an intro session. It is a calm first step where we review your situation and choose the right format.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do I need an intro session before a course?',
+          acceptedAnswer: { '@type': 'Answer', text: 'I recommend it — it helps me understand your stage and goals, and helps you feel how the work is structured.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I work online?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes. All formats are available online without losing quality.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is this suitable after a C-section?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Yes, the program is adapted to your recovery stage and how you feel.' },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I know which format is right for me?',
+          acceptedAnswer: { '@type': 'Answer', text: 'That is exactly what the intro session is for — it helps you decide.' },
+        },
+      ],
+    },
+    {
+      '@type': 'Service',
+      name: 'Personal Training — Anastasia Nikolskaya',
+      description: 'Personal training, postpartum recovery, mini-groups, and online support.',
+      provider: {
+        '@type': 'Person',
+        name: 'Anastasia Nikolskaya',
+        url: `${SITE_URL}/en/about/`,
+      },
+      url: `${SITE_URL}/en/formats-pricing/`,
+      areaServed: [
+        { '@type': 'City', name: 'Samara' },
+      ],
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Intro session',
+          price: '3500',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Personal guidance — 4 sessions',
+          price: '16000',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Personal guidance — 8 sessions',
+          price: '30000',
+          priceCurrency: 'RUB',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Personal guidance — 12 sessions',
+          price: '44000',
+          priceCurrency: 'RUB',
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <PageLayout
   lang={lang}
+  structuredData={structuredData}
   title="Formats & Pricing — Anastasia Nikolskaya"
   description="Personal training, postpartum recovery, mini-groups, and online support. Starting from 3,500 RUB for an intro session."
   canonicalPath="/en/formats-pricing/"
