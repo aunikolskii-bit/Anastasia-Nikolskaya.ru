@@ -171,10 +171,32 @@ h3 {
   padding-bottom: 96px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section {
-    padding-top: 72px;
-    padding-bottom: 72px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* First section after breadcrumb: tighter top spacing on mobile/tablet */
+nav[aria-label="Breadcrumb"] + section > .section {
+  padding-top: 64px;
+}
+@media (max-width: 1024px) {
+  nav[aria-label="Breadcrumb"] + section > .section {
+    padding-top: 40px;
+  }
+}
+@media (max-width: 640px) {
+  nav[aria-label="Breadcrumb"] + section > .section {
+    padding-top: 28px;
   }
 }
 

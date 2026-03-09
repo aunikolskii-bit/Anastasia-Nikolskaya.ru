@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
-import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'en';
 ---
@@ -164,9 +163,6 @@ const lang = 'en';
           In the intro session, we will review your situation and understand which format of work suits you best.
         </p>
         <BookingCta lang={lang} label="Book an intro session" />
-        <div class="mt-4">
-          <FallbackContact lang={lang} />
-        </div>
       </div>
     </div>
   </section>

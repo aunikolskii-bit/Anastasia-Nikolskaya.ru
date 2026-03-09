@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
-import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'en';
 ---
@@ -56,7 +55,7 @@ const lang = 'en';
           <div class="flex flex-col items-start md:items-end gap-4">
             <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-3xl md:text-4xl">from 3,500 RUB</p>
             <div>
-              <p class="text-[14px] font-medium text-[var(--color-text-body)] mb-2 md:text-right">Get in touch</p>
+              <p class="text-[14px] font-medium text-[var(--color-text-body)] mb-2 md:text-right">Choose a contact method</p>
               <BookingCta lang={lang} label="Book an intro session" />
             </div>
           </div>
@@ -168,9 +167,6 @@ const lang = 'en';
           In the first session, we will calmly review your situation and understand which format suits you best.
         </p>
         <BookingCta lang={lang} label="Book an intro session" />
-        <div class="mt-4">
-          <FallbackContact lang={lang} />
-        </div>
       </div>
     </div>
   </section>

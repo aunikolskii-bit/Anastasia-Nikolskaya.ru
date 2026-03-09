@@ -1,7 +1,7 @@
 ---
 /**
- * OfferLadder — homepage pricing preview.
- * Shows entry offer (featured) + core 1:1 offer + link to full pricing page.
+ * OfferLadder — homepage pricing teaser.
+ * Shows the entry offer (featured card) + link to full pricing page.
  */
 import type { Lang } from '../i18n/utils';
 import BookingCta from './BookingCta.astro';
@@ -24,11 +24,6 @@ const content = {
       description: 'Спокойный первый шаг: знакомство, разбор вашей ситуации, целей и\u00A0ограничений, базовая оценка и\u00A0понимание, как двигаться дальше.',
       price: 'от 3 500 \u20BD',
     },
-    personal: {
-      title: 'Персональное сопровождение 1:1',
-      description: 'Индивидуальная работа под ваш этап, самочувствие и\u00A0задачу\u00A0— во\u00A0время беременности, после родов или после кесарева.',
-      price: 'от 16 000 \u20BD за 4 занятия',
-    },
   },
   en: {
     label: 'Formats & Pricing',
@@ -41,11 +36,6 @@ const content = {
       description: 'A calm first step: getting to know your situation, goals and limitations, with a clear first understanding of how to move forward.',
       price: 'from 3,500 RUB',
     },
-    personal: {
-      title: 'Personal guidance 1:1',
-      description: 'Individual work tailored to your stage, condition, and goals\u00A0— during pregnancy, postpartum, or after a C-section.',
-      price: 'from 16,000 RUB for 4 sessions',
-    },
   },
 };
 
@@ -53,13 +43,13 @@ const c = content[lang];
 ---
 
 <section class="bg-[var(--color-bg-cream)]">
-  <div class="container pt-[72px] pb-0 md:pt-[96px] md:pb-0">
+  <div class="container pt-[48px] pb-0 sm:pt-[64px] md:pt-[96px] md:pb-0">
     <p class="label-uppercase mb-6">{c.label}</p>
     <h2 class="mb-3">{c.title}</h2>
     <p class="text-[16px] text-[var(--color-text-body)] mb-12">{c.subtitle}</p>
 
     <!-- Featured: Starter -->
-    <div class="card border-l-4 border-l-[var(--color-primary)] p-8 md:p-12 mb-8">
+    <div class="card border-l-4 border-l-[var(--color-primary)] p-8 md:p-12">
       <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 items-center">
         <div>
           <h3 class="text-2xl mb-3">{c.starter.title}</h3>
@@ -72,14 +62,7 @@ const c = content[lang];
       </div>
     </div>
 
-    <!-- Personal 1:1 -->
-    <div class="card p-8">
-      <h3 class="text-xl mb-3">{c.personal.title}</h3>
-      <p class="text-[15px] leading-relaxed mb-4 text-[var(--color-text-body)]">{c.personal.description}</p>
-      <p class="font-[var(--font-heading)] font-bold text-[var(--color-dark)] text-xl">{c.personal.price}</p>
-    </div>
-
-    <div class="text-center mt-10">
+    <div class="text-center mt-6">
       <a href={c.seeAllHref} class="btn btn-secondary">{c.seeAll}</a>
     </div>
   </div>

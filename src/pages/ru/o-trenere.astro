@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
-import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'ru';
 ---
@@ -179,11 +178,11 @@ const lang = 'ru';
           },
         ].map(doc => (
           <div class="card p-5">
-            <div class="bg-white border border-[var(--color-border)] rounded-lg p-3 mb-4 flex items-center justify-center">
+            <div class="bg-white border border-[var(--color-border)] rounded-lg p-3 mb-4 flex items-center justify-center aspect-[3/4]">
               <img
                 src={doc.src}
                 alt={doc.title}
-                class="max-w-full max-h-[320px] object-contain"
+                class="max-w-full max-h-full object-contain"
                 width={doc.w}
                 height={doc.h}
                 loading="lazy"
@@ -207,9 +206,6 @@ const lang = 'ru';
           На&nbsp;стартовой встрече мы спокойно разберём вашу ситуацию, этап, ограничения и&nbsp;цели и&nbsp;поймём, какой формат подойдёт именно вам.
         </p>
         <BookingCta lang={lang} label="Записаться на стартовую встречу" />
-        <div class="mt-4">
-          <FallbackContact lang={lang} />
-        </div>
       </div>
     </div>
   </section>

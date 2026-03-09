@@ -77,7 +77,7 @@ const items = limit ? c.items.slice(0, limit) : c.items;
         <p class="label-uppercase mb-4">{c.label}</p>
         <Heading>{c.title}</Heading>
       </div>
-      <div class="border-2 border-[var(--color-border-strong)]">
+      <div class="md:border-2 md:border-[var(--color-border-strong)]">
         {items.map((item, i) => (
           <details class="group">
             <summary class:list={[

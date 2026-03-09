@@ -1,10 +1,9 @@
 ---
 /**
- * RouteSelector — static shell with 3 path cards.
- * Interactive version (RouteSelectorIsland) handles the CTA logic.
+ * RouteSelector — stage selection block with 2 path cards.
+ * Each card links directly to the Contacts page.
  */
 import type { Lang } from '../i18n/utils';
-import RouteSelectorIsland from './RouteSelectorIsland';
 
 interface Props {
   lang: Lang;
@@ -14,56 +13,53 @@ const { lang } = Astro.props;
 
 const content = {
   ru: {
-    label: 'Ваш маршрут',
-    title: 'Выберите, с чего вам начать',
+    label: 'Тренировки',
+    title: 'Какие тренировки вас интересуют?',
     cards: [
       {
-        id: 'pregnancy',
         title: 'Во время беременности',
-        description: 'Безопасная работа с учётом срока, самочувствия и уровня подготовки.',
+        description: 'Бережная работа с учётом срока, самочувствия и ваших ограничений.',
       },
       {
-        id: 'postpartum',
-        title: 'После родов',
-        description: 'Мягкое восстановление, возвращение уверенности в теле и безопасный вход в нагрузку.',
-      },
-      {
-        id: 'unsure',
-        title: 'Не уверена, с чего начать',
-        description: 'Помогу спокойно понять, какой формат подойдёт именно вам.',
+        title: 'Восстановление после родов',
+        description: 'Мягкое восстановление и безопасное возвращение к движению.',
       },
     ],
   },
   en: {
-    label: 'Your path',
-    title: 'Choose where to start',
+    label: 'Training',
+    title: 'Which training path interests you?',
     cards: [
       {
-        id: 'pregnancy',
         title: 'During pregnancy',
-        description: 'Safe guidance tailored to your stage, how you feel, and your level of preparation.',
+        description: 'Gentle work adapted to your stage, how you feel, and your current limitations.',
       },
       {
-        id: 'postpartum',
-        title: 'Postpartum',
-        description: 'Gentle recovery, renewed confidence in your body, and a safe return to movement.',
-      },
-      {
-        id: 'unsure',
-        title: 'Not sure where to start',
-        description: 'I will help you calmly understand which format is right for you.',
+        title: 'Postpartum recovery',
+        description: 'Gentle recovery and a safe return to movement.',
       },
     ],
   },
 };
 
 const c = content[lang];
+const contactUrl = lang === 'ru' ? '/ru/kontakty/' : '/en/contact/';
 ---
 
 <section class="bg-[var(--color-bg-light)] lg:min-h-[70vh] lg:flex lg:items-center">
   <div class="container section w-full">
     <p class="label-uppercase mb-6">{c.label}</p>
     <h2 class="mb-12">{c.title}</h2>
-    <RouteSelectorIsland client:visible lang={lang} cards={c.cards} contactUrl={lang === 'ru' ? '/ru/kontakty/' : '/en/contact/'} />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+      {c.cards.map(card => (
+        <a
+          href={contactUrl}
+          class="card text-left no-underline transition-all duration-200 hover:border-[var(--color-primary)] hover:shadow-[0_5px_25px_rgba(105,70,113,0.15)]"
+        >
+          <h3 class="text-xl mb-3 font-[var(--font-heading)]">{card.title}</h3>
+          <p class="text-[15px] text-[var(--color-text-body)] leading-relaxed">{card.description}</p>
+        </a>
+      ))}
+    </div>
   </div>
 </section>

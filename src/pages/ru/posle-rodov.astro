@@ -2,7 +2,6 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import BookingCta from '../../components/BookingCta.astro';
-import FallbackContact from '../../components/FallbackContact.astro';
 
 const lang = 'ru';
 ---
@@ -64,9 +63,6 @@ const lang = 'ru';
 
       <div class="text-center">
         <BookingCta lang={lang} label="Записаться на стартовую встречу" />
-        <div class="mt-4">
-          <FallbackContact lang={lang} />
-        </div>
       </div>
     </div>
   </section>

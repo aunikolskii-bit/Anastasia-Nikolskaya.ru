@@ -19,7 +19,6 @@ const content = {
     eyebrow: 'Персональное сопровождение для женщин до и после родов',
     h1: 'Бережное сопровождение до и после родов',
     supporting: 'Спокойная и\u00A0безопасная работа во\u00A0время беременности и\u00A0после родов с\u00A0учётом срока, самочувствия и\u00A0ваших целей\u00A0— в\u00A0Самаре и\u00A0онлайн.',
-    ctaSecondary: 'Как это проходит',
     imgAlt: 'Персональная работа тренера с беременной клиенткой',
     trust: [
       'Индивидуальный подход',
@@ -31,7 +30,6 @@ const content = {
     eyebrow: 'Personal guidance before and after childbirth',
     h1: 'Gentle guidance before and after childbirth',
     supporting: 'Calm and safe guidance during pregnancy and after childbirth, tailored to your stage, how you feel, and what you need\u00A0— in Samara and online.',
-    ctaSecondary: 'How it works',
     imgAlt: 'A trainer guiding a pregnant client during a personal session',
     trust: [
       'Individual approach',
@@ -58,15 +56,7 @@ const c = content[lang];
           <p class="text-[15px] font-semibold text-[var(--color-dark)] mb-3">
             {t(lang, 'cta.contact.heading')}
           </p>
-          <div class="flex items-center gap-4">
-            <ContactIcons lang={lang} size="large" />
-            <a
-              href="#how-it-works"
-              class="text-[15px] font-medium text-[var(--color-primary-dark)] hover:underline ml-2"
-            >
-              {c.ctaSecondary}
-            </a>
-          </div>
+          <ContactIcons lang={lang} size="large" />
         </div>
         <!-- Trust pills -->
         <div class="flex flex-wrap lg:flex-nowrap items-center gap-2">

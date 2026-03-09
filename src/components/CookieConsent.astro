@@ -15,22 +15,22 @@ const { lang } = Astro.props;
   role="dialog"
   aria-label={t(lang, 'consent.title')}
 >
-  <div class="bg-white border-t border-[var(--color-border)] shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-    <div class="container px-5 py-5 md:px-8 md:py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div class="max-w-xl">
-        <p class="font-semibold text-[var(--color-dark)] text-[15px] mb-1">{t(lang, 'consent.title')}</p>
-        <p class="text-[14px] text-[var(--color-text-body)]">{t(lang, 'consent.text')}</p>
-      </div>
-      <div class="flex gap-3 shrink-0">
+  <div class="bg-white/95 backdrop-blur-sm border-t border-[var(--color-border)]/60 shadow-[0_-2px_12px_rgba(0,0,0,0.06)]">
+    <div class="container px-4 py-3 md:px-8 md:py-4 flex items-center justify-between gap-3 md:gap-6">
+      <p class="text-[13px] md:text-[14px] text-[var(--color-text-body)] leading-snug min-w-0">
+        <span class="font-semibold text-[var(--color-dark)]">{t(lang, 'consent.title')}.</span>{' '}
+        {t(lang, 'consent.text')}
+      </p>
+      <div class="flex gap-2 shrink-0">
         <button
           id="consent-accept"
-          class="btn btn-primary py-3 px-6 text-[14px]"
+          class="text-[13px] font-medium px-4 py-1.5 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
         >
           {t(lang, 'consent.accept')}
         </button>
         <button
           id="consent-decline"
-          class="btn btn-secondary py-3 px-6 text-[14px]"
+          class="text-[13px] font-medium px-4 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-body)] hover:border-[var(--color-primary-dark)] hover:text-[var(--color-primary-dark)] transition-colors"
         >
           {t(lang, 'consent.decline')}
         </button>
