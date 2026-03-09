@@ -1,0 +1,45 @@
+# --- POST-SSL .htaccess ---
+# Deploy in phase 8 AFTER SSL is confirmed working.
+# Adds root → /ru/ redirect and ACME challenge protection.
+# HTTP→HTTPS redirect is handled by Timeweb panel toggle, NOT here.
+# www→non-www redirect is deferred until www SSL coverage is confirmed.
+
+RewriteEngine On
+
+# --- 1. Protect ACME challenge path (Let's Encrypt renewal) ---
+RewriteCond %{REQUEST_URI} ^/\.well-known/acme-challenge/ [NC]
+RewriteRule ^ - [L]
+
+# --- 2. Root → /ru/ ---
+RewriteRule ^$ /ru/ [R=301,L]
+
+# --- 3. Custom 404 ---
+ErrorDocument 404 /404.html
+
+# --- 4. Security headers ---
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# --- 5. Cache: hashed assets 1yr, images 1mo, HTML never ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 day"
+</IfModule>
+
+# --- 6. Gzip ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml image/svg+xml
+</IfModule>
+
+# --- 7. No directory listing ---
+Options -Indexes
