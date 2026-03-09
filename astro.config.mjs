@@ -10,13 +10,12 @@ export default defineConfig({
     locales: ['ru', 'en'],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: true,
+      redirectToDefaultLocale: false,
     },
   },
   integrations: [
     preact(),
     sitemap({
-      filter: (page) => !page.includes('/review'),
       i18n: {
         defaultLocale: 'ru',
         locales: {

@@ -1,6 +1,25 @@
 ---
-// Non-Netlify fallback redirect only.
-// On Netlify, public/_redirects handles: / → /ru/ 301!
-// This page exists for non-Netlify environments.
-return Astro.redirect('/ru/', 301);
+// Root → /ru/ redirect (static HTML fallback).
+//
+// Pre-SSL:  This HTML page is the only redirect mechanism.
+//           .htaccess has zero redirects to avoid breaking ACME validation.
+//           The meta-refresh fires instantly (content="0").
+//
+// Post-SSL: .htaccess RewriteRule handles the 301 server-side.
+//           This HTML page remains as a belt-and-suspenders fallback
+//           in case .htaccess is ever missing or misconfigured.
 ---
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0;url=/ru/" />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://anastasia-nikolskaya.ru/ru/" />
+  <title>Redirecting…</title>
+</head>
+<body>
+  <a href="/ru/">Перейти на главную</a>
+</body>
+</html>
