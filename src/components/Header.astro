@@ -111,17 +111,26 @@ function isActive(href: string): boolean {
       </a>
     </div>
 
-    <!-- Mobile menu button (hamburger only — close lives inside panel) -->
-    <button
-      id="mobile-menu-toggle"
-      class="xl:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-dark)]"
-      aria-label="Menu"
-      aria-expanded="false"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+    <!-- Mobile/tablet right group: language switcher + hamburger (visible < xl) -->
+    <div class="xl:hidden flex items-center gap-2">
+      <a
+        href={alternateLangUrl}
+        class="text-[12px] font-semibold text-[var(--color-primary-dark)] border border-[var(--color-primary-dark)]/40 px-2.5 py-1 rounded-full hover:bg-[var(--color-primary-dark)] hover:text-white transition-colors no-underline shrink-0"
+        aria-label={`Switch to ${lang === 'ru' ? 'English' : 'Russian'}`}
+      >
+        {t(lang, 'lang.switch')}
+      </a>
+      <button
+        id="mobile-menu-toggle"
+        class="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-[var(--color-dark)]"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 

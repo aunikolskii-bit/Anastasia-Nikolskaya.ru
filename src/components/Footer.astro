@@ -16,10 +16,10 @@ const footerNav = [0, 2, 3, 5, 6, 8].map(i => navItems[i]);
 ---
 
 <footer class="bg-[var(--color-bg-cream)] border-t border-[var(--color-border)]">
-  <div class="container py-6 md:py-14">
+  <div class="container py-6 md:py-10">
 
     <!-- Main row: brand+phone left, nav+socials right -->
-    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-8 mb-5 md:mb-8">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5 md:gap-6 mb-5 md:mb-6">
 
       <!-- Left: brand + phone -->
       <div class="shrink-0">
@@ -51,7 +51,7 @@ const footerNav = [0, 2, 3, 5, 6, 8].map(i => navItems[i]);
     </div>
 
     <!-- Bottom: legal bar -->
-    <div class="border-t border-[var(--color-border)] pt-4 md:pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4 text-[13px] text-[var(--color-text-body)]/60">
+    <div class="border-t border-[var(--color-border)] pt-4 md:pt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4 text-[13px] text-[var(--color-text-body)]/60">
       <div class="flex flex-wrap gap-4 items-center">
         <a href={`${prefix}/privacy/`} class="hover:text-[var(--color-primary-dark)] transition-colors no-underline py-2 min-h-[44px] inline-flex items-center">
           {t(lang, 'footer.privacy')}
