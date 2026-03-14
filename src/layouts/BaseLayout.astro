@@ -21,6 +21,7 @@ interface Props {
 const { lang, title, description, canonicalPath, alternatePath, ogImage, ogType, noindex, structuredData } = Astro.props;
 
 const yandexVerification = import.meta.env.YANDEX_VERIFICATION;
+const zenVerification = import.meta.env.ZEN_VERIFICATION;
 ---
 
 <!doctype html>
@@ -30,6 +31,7 @@ const yandexVerification = import.meta.env.YANDEX_VERIFICATION;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {yandexVerification && <meta name="yandex-verification" content={yandexVerification} />}
+    {zenVerification && <meta name="zen-verification" content={zenVerification} />}
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />

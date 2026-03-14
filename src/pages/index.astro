@@ -8,12 +8,14 @@
 // Post-SSL: .htaccess RewriteRule handles the 301 server-side.
 //           This HTML page remains as a belt-and-suspenders fallback
 //           in case .htaccess is ever missing or misconfigured.
+const yandexVerification = import.meta.env.YANDEX_VERIFICATION;
 ---
 
 <!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
+  {yandexVerification && <meta name="yandex-verification" content={yandexVerification} />}
   <meta http-equiv="refresh" content="0;url=/ru/" />
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="https://anastasia-nikolskaya.ru/ru/" />
